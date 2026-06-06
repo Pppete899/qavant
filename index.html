@@ -3217,13 +3217,13 @@
         </div>
 
         <h1 id="heroTitle">
-          <span class="word"><span data-i18n="hero.t1">Kvalita</span></span>
+          <span class="word"><span data-i18n="hero.t1">Release</span></span>
           <span class="word"><span data-i18n="hero.t2">sa</span></span>
-          <span class="word"><span data-i18n="hero.t3">netestuje.</span></span>
+          <span class="word"><span data-i18n="hero.t3">neriskuje.</span></span>
           <br/>
           <em>
-            <span class="word"><span data-i18n="hero.t4">Inžinieruje</span></span>
-            <span class="word"><span data-i18n="hero.t5">sa.</span></span>
+            <span class="word"><span data-i18n="hero.t4">QA</span></span>
+            <span class="word"><span data-i18n="hero.t5">ho garantuje.</span></span>
           </em>
         </h1>
 
@@ -3937,8 +3937,8 @@ const dict = {
     "story.t1":"Jeden bug,","story.t2":"ktorý ma naučil viac","story.t3":"než celý rok kurzov.","story.p1":"Bankový klient, payment flow. Test prešiel zelene 14× v rade. Code review v poriadku. Deploy na staging — všetko OK. Posledný regression run pred produkciou: zelený. Tím šiel domov.","story.p2":"Pondelok ráno: 3 zákaznícke ticety. Platba sa odpočítala dvakrát.","story.p3":"Test bol „správny\u201C — len kontroloval že payment endpoint vrátil 200 OK. Nikdy nekontroloval či sa DB zapísala raz. Race condition v retry logike — pri pomalej odpovedi backendu sa request poslal dvakrát.","story.p4":"Strávil som 2 dni napísaním testu ktorý by to chytil. Single assertion: payment_attempts = 1 na DB úrovni, nie na HTTP. Bug objavený v dev environment 3 týždne neskôr keď niekto refactoroval retry mechanizmus. Production-saved.","story.p5":"Ponaučenie: „test prešiel\u201C nie je rovnaké ako „funguje to\u201C. Test je len taký dobrý, akú silnú má assertion. Pri fintech-e platí: ak nemerieš to čo má skutočný impact na užívateľa, tvoja zelená farba klame.","story.m1.l":"DOMÉNA","story.m1.v":"Banking · Payments","story.m2.l":"CHARAKTER BUGU","story.m2.v":"Race condition v retry logike","story.m3.l":"POTENCIÁLNY IMPACT","story.m3.v":"Double-charge na ~1.2% transakcií","story.m4.l":"VÝSLEDOK","story.m4.v":"Zachytené 3 týždne pred prod","story.disclaimer":"* Detaily anonymizované. Žiadne dáta klienta, žiadne interné systémy, žiadne porušenie NDA.","midcta1.eyebrow":"SOUNDS LIKE A FIT?","midcta1.title":"30-minútový discovery call. Zdarma.","midcta1.desc":"Žiadna prezentácia, žiadny sales. Len rozhovor o tvojom projekte a čo by sa dalo zlepšiť.","midcta1.btn":"Napíš mi",
     "midcta2.eyebrow":"PRIPRAVENÝ ZAČAŤ?","midcta2.title":"Vieš čo robím. Vieš ako pracujem.","midcta2.desc":"Posledný krok je jednoduchý — napíš mi pár riadkov o tvojom projekte.","midcta2.btn":"Začnime",
     "hero.eyebrow":"QA Engineering · Bratislava · Available now",
-    "hero.t1":"Kvalita","hero.t2":"sa","hero.t3":"netestuje.",
-    "hero.t4":"Inžinieruje","hero.t5":"sa.",
+    "hero.t1":"Release","hero.t2":"sa","hero.t3":"neriskuje.",
+    "hero.t4":"QA","hero.t5":"ho garantuje.",
     "hero.sub":"Som Peter — freelance QA automation engineer s tromi rokmi v slovenských bankách. Staviam test frameworky, ktoré prežijú piatok večer, a hľadám detaily, ktoré tvoji vývojári prehliadli pri code review.",
     "hero.cta1":"Začnime spolupracovať","hero.cta2":"Pozri služby",
     "services.kicker":"Služby","services.t1":"Tri spôsoby,","services.t2":"ako pomôžem.",
@@ -4009,8 +4009,8 @@ const dict = {
     "story.t1":"One bug","story.t2":"that taught me more","story.t3":"than a year of courses.","story.p1":"Banking client, payment flow. Test passed green 14 times in a row. Code review approved. Staging deploy — fine. Final regression run before production: green. Team went home.","story.p2":"Monday morning: 3 customer tickets. Payment charged twice.","story.p3":"The test was „correct\u201C — it just checked that the payment endpoint returned 200 OK. It never checked that the DB was written once. Race condition in retry logic — when backend response was slow, request was sent twice.","story.p4":"Spent 2 days writing the test that would have caught it. Single assertion: payment_attempts = 1 at the DB level, not at HTTP. Bug discovered in dev environment 3 weeks later when someone refactored the retry mechanism. Production-saved.","story.p5":"Lesson: „test passed\u201C is not the same as „it works\u201C. A test is only as good as its strongest assertion. In fintech: if you don\u0027t measure what truly impacts the user, your green is lying.","story.m1.l":"DOMAIN","story.m1.v":"Banking · Payments","story.m2.l":"BUG NATURE","story.m2.v":"Race condition in retry logic","story.m3.l":"POTENTIAL IMPACT","story.m3.v":"Double-charge on ~1.2% of transactions","story.m4.l":"OUTCOME","story.m4.v":"Caught 3 weeks before prod","story.disclaimer":"* Details anonymized. No client data, no internal systems, no NDA breach.","midcta1.eyebrow":"SOUNDS LIKE A FIT?","midcta1.title":"30-minute discovery call. Free.","midcta1.desc":"No pitch deck, no sales. Just a conversation about your project and what could be improved.","midcta1.btn":"Send a message",
     "midcta2.eyebrow":"READY TO START?","midcta2.title":"You know what I do. You know how I work.","midcta2.desc":"The last step is simple — drop me a few lines about your project.","midcta2.btn":"Let's talk",
     "hero.eyebrow":"QA Engineering · Bratislava · Available now",
-    "hero.t1":"Quality","hero.t2":"isn't","hero.t3":"tested.",
-    "hero.t4":"It's","hero.t5":"engineered.",
+    "hero.t1":"Releases","hero.t2":"aren't","hero.t3":"risked.",
+    "hero.t4":"QA","hero.t5":"guarantees them.",
     "hero.sub":"I'm Peter — a freelance QA automation engineer with three years inside Slovak banks. I build test frameworks that survive Friday evening and catch the details your developers missed during code review.",
     "hero.cta1":"Start a project","hero.cta2":"See services",
     "services.kicker":"Services","services.t1":"Three ways","services.t2":"I can help.",
@@ -4081,8 +4081,8 @@ const dict = {
     "story.t1":"Ein Bug,","story.t2":"der mir mehr beibrachte","story.t3":"als ein Jahr Kurse.","story.p1":"Banken-Kunde, Payment Flow. Test 14 Mal grün. Code Review okay. Staging Deploy — alles gut. Letzter Regression-Lauf vor Production: grün. Team ging nach Hause.","story.p2":"Montag morgen: 3 Kundentickets. Zahlung wurde zweimal abgebucht.","story.p3":"Der Test war „korrekt\u201C — er prüfte nur, dass der Payment-Endpoint 200 OK zurückgab. Er prüfte nie, ob die DB einmal geschrieben wurde. Race Condition in Retry-Logik — bei langsamer Backend-Antwort wurde Request zweimal gesendet.","story.p4":"2 Tage damit verbracht, den Test zu schreiben, der es gefangen hätte. Single Assertion: payment_attempts = 1 auf DB-Ebene, nicht HTTP. Bug entdeckt im Dev-Environment 3 Wochen später, als jemand den Retry-Mechanismus refaktorierte. Production-saved.","story.p5":"Lektion: „Test bestanden\u201C ist nicht dasselbe wie „funktioniert\u201C. Ein Test ist nur so gut wie seine stärkste Assertion. Im Fintech gilt: Wenn du nicht misst, was den Nutzer wirklich betrifft, lügt dein grün.","story.m1.l":"DOMÄNE","story.m1.v":"Banking · Payments","story.m2.l":"BUG-ART","story.m2.v":"Race Condition in Retry-Logik","story.m3.l":"POTENZIELLE AUSWIRKUNG","story.m3.v":"Double-Charge bei ~1,2% der Transaktionen","story.m4.l":"ERGEBNIS","story.m4.v":"3 Wochen vor Prod gefangen","story.disclaimer":"* Details anonymisiert. Keine Kundendaten, keine internen Systeme, keine NDA-Verletzung.","midcta1.eyebrow":"KLINGT PASSEND?","midcta1.title":"30-minütiges Discovery-Gespräch. Kostenlos.","midcta1.desc":"Kein Pitch, kein Sales. Nur ein Gespräch über Ihr Projekt und was verbessert werden könnte.","midcta1.btn":"Nachricht senden",
     "midcta2.eyebrow":"BEREIT ZU STARTEN?","midcta2.title":"Sie wissen, was ich tue. Sie wissen, wie ich arbeite.","midcta2.desc":"Der letzte Schritt ist einfach — schreiben Sie mir ein paar Zeilen über Ihr Projekt.","midcta2.btn":"Lass uns reden",
     "hero.eyebrow":"QA Engineering · Bratislava · Verfügbar",
-    "hero.t1":"Qualität","hero.t2":"wird","hero.t3":"nicht getestet.",
-    "hero.t4":"Sie wird","hero.t5":"konstruiert.",
+    "hero.t1":"Releases","hero.t2":"werden","hero.t3":"nicht riskiert.",
+    "hero.t4":"QA","hero.t5":"garantiert sie.",
     "hero.sub":"Ich bin Peter — freelance QA Automation Engineer mit drei Jahren Erfahrung in slowakischen Banken. Ich baue Test-Frameworks, die den Freitagabend überstehen, und finde die Details, die Ihre Entwickler beim Code-Review übersehen haben.",
     "hero.cta1":"Projekt starten","hero.cta2":"Leistungen ansehen",
     "services.kicker":"Leistungen","services.t1":"Drei Wege,","services.t2":"wie ich helfe.",
