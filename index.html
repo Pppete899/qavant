@@ -11,6 +11,7 @@
 
 <!-- Favicon (inline SVG — single file, no extra request) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230F0E0C'/%3E%3Cg%20stroke='%23B8881C'%20stroke-width='1.8'%20fill='none'%3E%3Cpath%20d='M3%208%20V3%20H8'/%3E%3Cpath%20d='M24%203%20H29%20V8'/%3E%3Cpath%20d='M29%2024%20V29%20H24'/%3E%3Cpath%20d='M8%2029%20H3%20V24'/%3E%3C/g%3E%3Ctext%20x='16'%20y='16'%20dy='.35em'%20text-anchor='middle'%20font-family='ui-monospace%2CMenlo%2CConsolas%2Cmonospace'%20font-weight='700'%20font-size='12.5'%20fill='%23D4AF37'%3EQA%3C/text%3E%3C/svg%3E" />
+
 <!-- Open Graph (LinkedIn, Slack, WhatsApp, etc.) -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://qavant.dev/" />
@@ -3885,6 +3886,45 @@
   </div>
 </section>
 
+<!-- LinkedIn connect banner -->
+<style>
+  .li-banner{max-width:900px;margin:80px auto 0;padding:0 24px;}
+  .li-card{position:relative;display:flex;align-items:center;gap:18px;padding:24px 28px;
+    border:1px solid var(--line-2);border-radius:16px;
+    background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(122,14,14,0.05));
+    text-decoration:none;overflow:hidden;
+    transition:transform .3s var(--ease-out),border-color .3s var(--ease-out),box-shadow .3s var(--ease-out);}
+  .li-card:hover{transform:translateY(-3px);border-color:var(--accent-bright);box-shadow:0 14px 40px rgba(0,0,0,.35);}
+  .li-card::before,.li-card::after{content:'';position:absolute;width:18px;height:18px;
+    border:2px solid var(--accent);opacity:.65;transition:opacity .3s;}
+  .li-card::before{top:12px;left:12px;border-right:none;border-bottom:none;}
+  .li-card::after{bottom:12px;right:12px;border-left:none;border-top:none;}
+  .li-card:hover::before,.li-card:hover::after{opacity:1;}
+  .li-icon{flex:none;width:46px;height:46px;border-radius:11px;background:#0A66C2;display:grid;place-items:center;}
+  .li-icon svg{width:26px;height:26px;fill:#fff;}
+  .li-text{display:flex;flex-direction:column;gap:2px;}
+  .li-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright);}
+  .li-name{font-family:'Fraunces',serif;font-size:21px;color:var(--ink);font-weight:600;line-height:1.1;}
+  .li-handle{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);}
+  .li-arrow{margin-left:auto;color:var(--ink-dim);font-size:24px;line-height:1;
+    transition:transform .3s var(--ease-out),color .3s;}
+  .li-card:hover .li-arrow{transform:translateX(6px);color:var(--accent-bright);}
+  @media(max-width:600px){.li-card{flex-wrap:wrap;gap:14px;padding:20px;}.li-arrow{display:none;}}
+</style>
+<div class="li-banner">
+  <a class="li-card" href="https://www.linkedin.com/in/peter-olah-8ab858137/" target="_blank" rel="noopener noreferrer" data-cursor="hover" aria-label="Peter Oláh na LinkedIn">
+    <span class="li-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+    </span>
+    <span class="li-text">
+      <span class="li-kicker">Let's connect</span>
+      <span class="li-name">Peter Oláh</span>
+      <span class="li-handle">linkedin.com/in/peter-olah</span>
+    </span>
+    <span class="li-arrow" aria-hidden="true">&rarr;</span>
+  </a>
+</div>
+
 <footer>
   <div class="container">
     <div class="foot-inner">
@@ -3892,9 +3932,9 @@
       <div class="foot-contact">
         <a href="mailto:hello@qavant.dev" data-cursor="hover">hello@qavant.dev</a>
         <span class="foot-sep">·</span>
-        <a href="#" data-cursor="hover" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/peter-olah-8ab858137/" target="_blank" rel="noopener" data-cursor="hover" aria-label="LinkedIn">LinkedIn</a>
         <span class="foot-sep">·</span>
-        <a href="#" data-cursor="hover" aria-label="GitHub">GitHub</a>
+        <a href="https://github.com/Pppete899" target="_blank" rel="noopener" data-cursor="hover" aria-label="GitHub">GitHub</a>
       </div>
     </div>
     <div class="foot-legal">
