@@ -3194,6 +3194,7 @@
       <a href="#mission" data-i18n="nav.mission" data-cursor="hover">Manifesto</a>
       <a href="#process" data-i18n="nav.process" data-cursor="hover">Proces</a>
       <a href="#contact" data-i18n="nav.contact" data-cursor="hover">Kontakt</a>
+      <a class="nav-li" href="https://www.linkedin.com/in/peter-olah-8ab858137/" target="_blank" rel="noopener" data-cursor="hover" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
       <div class="lang-switch" role="group" aria-label="Language">
         <button data-lang="sk" class="active" aria-pressed="true" data-cursor="hover">SK</button>
         <button data-lang="en" aria-pressed="false" data-cursor="hover">EN</button>
@@ -3647,6 +3648,47 @@
       </div>
     </div>
   </div>
+<!-- LinkedIn connect banner -->
+<style>
+  .li-banner{max-width:760px;margin:48px auto 0;padding:0 24px;}
+  .li-card{position:relative;display:flex;align-items:center;gap:18px;padding:24px 28px;
+    border:1px solid var(--line-2);border-radius:16px;
+    background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(122,14,14,0.05));
+    text-decoration:none;overflow:hidden;
+    transition:transform .3s var(--ease-out),border-color .3s var(--ease-out),box-shadow .3s var(--ease-out);}
+  .li-card:hover{transform:translateY(-3px);border-color:var(--accent-bright);box-shadow:0 14px 40px rgba(0,0,0,.35);}
+  .li-card::before,.li-card::after{content:'';position:absolute;width:18px;height:18px;
+    border:2px solid var(--accent);opacity:.65;transition:opacity .3s;}
+  .li-card::before{top:12px;left:12px;border-right:none;border-bottom:none;}
+  .li-card::after{bottom:12px;right:12px;border-left:none;border-top:none;}
+  .li-card:hover::before,.li-card:hover::after{opacity:1;}
+  .li-icon{flex:none;width:46px;height:46px;border-radius:11px;background:#0A66C2;display:grid;place-items:center;}
+  .li-icon svg{width:26px;height:26px;fill:#fff;}
+  .li-text{display:flex;flex-direction:column;gap:2px;}
+  .li-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright);}
+  .li-name{font-family:'Fraunces',serif;font-size:21px;color:var(--ink);font-weight:600;line-height:1.1;}
+  .li-handle{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);}
+  .li-arrow{margin-left:auto;color:var(--ink-dim);font-size:24px;line-height:1;
+    transition:transform .3s var(--ease-out),color .3s;}
+  .li-card:hover .li-arrow{transform:translateX(6px);color:var(--accent-bright);}
+  @media(max-width:600px){.li-card{flex-wrap:wrap;gap:14px;padding:20px;}.li-arrow{display:none;}}
+  .nav-li{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--ink-2);transition:color .2s var(--ease),background .2s var(--ease);margin-left:6px;}
+  .nav-li svg{width:17px;height:17px;fill:currentColor;}
+  .nav-li:hover{color:#fff;background:#0A66C2;}
+</style>
+<div class="li-banner">
+  <a class="li-card" href="https://www.linkedin.com/in/peter-olah-8ab858137/" target="_blank" rel="noopener noreferrer" data-cursor="hover" aria-label="Peter Oláh na LinkedIn">
+    <span class="li-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+    </span>
+    <span class="li-text">
+      <span class="li-kicker">Let's connect</span>
+      <span class="li-name">Peter Oláh</span>
+      <span class="li-handle">linkedin.com/in/peter-olah</span>
+    </span>
+    <span class="li-arrow" aria-hidden="true">&rarr;</span>
+  </a>
+</div>
 </section>
 
 <div class="divider reveal"></div>
@@ -3886,44 +3928,6 @@
   </div>
 </section>
 
-<!-- LinkedIn connect banner -->
-<style>
-  .li-banner{max-width:900px;margin:80px auto 0;padding:0 24px;}
-  .li-card{position:relative;display:flex;align-items:center;gap:18px;padding:24px 28px;
-    border:1px solid var(--line-2);border-radius:16px;
-    background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(122,14,14,0.05));
-    text-decoration:none;overflow:hidden;
-    transition:transform .3s var(--ease-out),border-color .3s var(--ease-out),box-shadow .3s var(--ease-out);}
-  .li-card:hover{transform:translateY(-3px);border-color:var(--accent-bright);box-shadow:0 14px 40px rgba(0,0,0,.35);}
-  .li-card::before,.li-card::after{content:'';position:absolute;width:18px;height:18px;
-    border:2px solid var(--accent);opacity:.65;transition:opacity .3s;}
-  .li-card::before{top:12px;left:12px;border-right:none;border-bottom:none;}
-  .li-card::after{bottom:12px;right:12px;border-left:none;border-top:none;}
-  .li-card:hover::before,.li-card:hover::after{opacity:1;}
-  .li-icon{flex:none;width:46px;height:46px;border-radius:11px;background:#0A66C2;display:grid;place-items:center;}
-  .li-icon svg{width:26px;height:26px;fill:#fff;}
-  .li-text{display:flex;flex-direction:column;gap:2px;}
-  .li-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright);}
-  .li-name{font-family:'Fraunces',serif;font-size:21px;color:var(--ink);font-weight:600;line-height:1.1;}
-  .li-handle{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);}
-  .li-arrow{margin-left:auto;color:var(--ink-dim);font-size:24px;line-height:1;
-    transition:transform .3s var(--ease-out),color .3s;}
-  .li-card:hover .li-arrow{transform:translateX(6px);color:var(--accent-bright);}
-  @media(max-width:600px){.li-card{flex-wrap:wrap;gap:14px;padding:20px;}.li-arrow{display:none;}}
-</style>
-<div class="li-banner">
-  <a class="li-card" href="https://www.linkedin.com/in/peter-olah-8ab858137/" target="_blank" rel="noopener noreferrer" data-cursor="hover" aria-label="Peter Oláh na LinkedIn">
-    <span class="li-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-    </span>
-    <span class="li-text">
-      <span class="li-kicker">Let's connect</span>
-      <span class="li-name">Peter Oláh</span>
-      <span class="li-handle">linkedin.com/in/peter-olah</span>
-    </span>
-    <span class="li-arrow" aria-hidden="true">&rarr;</span>
-  </a>
-</div>
 
 <footer>
   <div class="container">
