@@ -3077,7 +3077,7 @@
   "name": "Peter",
   "jobTitle": "QA Automation Engineer",
   "url": "https://qavant.dev",
-  "email": "hello@qavant.dev",
+  "email": "peterolah@qavant.dev",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Bratislava",
@@ -3115,7 +3115,7 @@
   "name": "Qavant",
   "description": "Freelance QA automation engineering specialized in fintech. Test frameworks, API testing, and QA audits.",
   "url": "https://qavant.dev",
-  "email": "hello@qavant.dev",
+  "email": "peterolah@qavant.dev",
   "areaServed": ["SK", "CZ", "AT", "DE", "CH"],
   "priceRange": "€€",
   "serviceType": [
@@ -3657,21 +3657,21 @@
     background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(29,78,216,0.05));
     text-decoration:none;overflow:hidden;
     transition:transform .3s var(--ease-out),border-color .3s var(--ease-out),box-shadow .3s var(--ease-out);}
-  .li-card:hover{transform:translateY(-3px);border-color:var(--accent-bright);box-shadow:0 14px 40px rgba(0,0,0,.35);}
+  .li-card:hover{transform:translateY(-3px);border-color:#1D4ED8;box-shadow:0 16px 44px rgba(8,20,40,.5);}
   .li-card::before,.li-card::after{content:'';position:absolute;width:18px;height:18px;
-    border:2px solid var(--accent);opacity:.65;transition:opacity .3s;}
+    border:2px solid #1D4ED8;opacity:.85;transition:opacity .3s;}
   .li-card::before{top:12px;left:12px;border-right:none;border-bottom:none;}
   .li-card::after{bottom:12px;right:12px;border-left:none;border-top:none;}
   .li-card:hover::before,.li-card:hover::after{opacity:1;}
   .li-icon{flex:none;width:46px;height:46px;border-radius:11px;background:#0A66C2;display:grid;place-items:center;}
   .li-icon svg{width:26px;height:26px;fill:#fff;}
   .li-text{display:flex;flex-direction:column;gap:2px;}
-  .li-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright);}
-  .li-name{font-family:'Fraunces',serif;font-size:21px;color:var(--ink);font-weight:600;line-height:1.1;}
-  .li-handle{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);}
-  .li-arrow{margin-left:auto;color:var(--ink-dim);font-size:24px;line-height:1;
+  .li-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1D4ED8;}
+  .li-name{font-family:'Fraunces',serif;font-size:21px;color:#0B0F1A;font-weight:600;line-height:1.1;}
+  .li-handle{font-family:'JetBrains Mono',monospace;font-size:12px;color:#4A6076;}
+  .li-arrow{margin-left:auto;color:#4A6076;font-size:24px;line-height:1;
     transition:transform .3s var(--ease-out),color .3s;}
-  .li-card:hover .li-arrow{transform:translateX(6px);color:var(--accent-bright);}
+  .li-card:hover .li-arrow{transform:translateX(6px);color:#1D4ED8;}
   @media(max-width:600px){.li-card{flex-wrap:wrap;gap:14px;padding:20px;}.li-arrow{display:none;}}
   .nav-li{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;color:var(--ink-2);transition:color .2s var(--ease),background .2s var(--ease);margin-left:6px;}
   .nav-li svg{width:17px;height:17px;fill:currentColor;}
@@ -3695,74 +3695,6 @@
 <div class="divider reveal"></div>
 
 <!-- ============== CASE STUDY ============== -->
-<section id="story" class="story-section">
-  <div class="container">
-    <div class="story-inner reveal">
-      <div class="story-kicker">
-        <span class="story-num">[ 04 / STORY ]</span>
-      </div>
-
-      <h2 class="story-title">
-        <span data-i18n="story.t1">Jeden bug,</span>
-        <em data-i18n="story.t2">ktorý ma naučil viac</em>
-        <span data-i18n="story.t3">než celý rok kurzov.</span>
-      </h2>
-
-      <div class="story-grid">
-        <div class="story-body">
-          <p data-i18n="story.p1">
-            Bankový klient, payment flow. Test prešiel zelene 14× v rade. Code review v poriadku. Deploy na staging — všetko OK.
-            Posledný regression run pred produkciou: zelený. Tím šiel domov.
-          </p>
-
-          <p class="story-pull" data-i18n="story.p2">
-            <em>Pondelok ráno: 3 zákaznícke ticety. Platba sa odpočítala dvakrát.</em>
-          </p>
-
-          <p data-i18n="story.p3">
-            Test bol &bdquo;správny&ldquo; — len kontroloval že payment endpoint vrátil <code>200 OK</code>. Nikdy nekontroloval či sa DB zapísala
-            <strong>raz</strong>. Race condition v retry logike — pri pomalej odpovedi backendu sa request poslal dvakrát.
-          </p>
-
-          <p data-i18n="story.p4">
-            Spent 2 days writing the test that would have caught it. Single assertion: <code>payment_attempts = 1</code> na DB úrovni,
-            nie na HTTP. Bug discovered v dev environment 3 týždne neskôr keď niekto refactoroval retry mechanizmus.
-            Production-saved.
-          </p>
-
-          <p class="story-takeaway" data-i18n="story.p5">
-            <strong>Ponaučenie:</strong> &bdquo;test prešiel&ldquo; nie je rovnaké ako &bdquo;funguje to&ldquo;.
-            Test je len taký dobrý, akú silnú má assertion. Pri fintech-e platí: ak nemerieš to čo má skutočný impact na užívateľa, tvoja zelená farba klame.
-          </p>
-        </div>
-
-        <aside class="story-meta">
-          <div class="story-meta-item">
-            <div class="story-meta-label" data-i18n="story.m1.l">DOMÉNA</div>
-            <div class="story-meta-val" data-i18n="story.m1.v">Banking · Payments</div>
-          </div>
-          <div class="story-meta-item">
-            <div class="story-meta-label" data-i18n="story.m2.l">CHARAKTER BUGU</div>
-            <div class="story-meta-val" data-i18n="story.m2.v">Race condition v retry logike</div>
-          </div>
-          <div class="story-meta-item">
-            <div class="story-meta-label" data-i18n="story.m3.l">POTENCIÁLNY IMPACT</div>
-            <div class="story-meta-val" data-i18n="story.m3.v">Double-charge na ~1.2% transakcií</div>
-          </div>
-          <div class="story-meta-item">
-            <div class="story-meta-label" data-i18n="story.m4.l">VÝSLEDOK</div>
-            <div class="story-meta-val story-meta-val-success" data-i18n="story.m4.v">Zachytené 3 týždne pred prod</div>
-          </div>
-          <div class="story-meta-disclaimer" data-i18n="story.disclaimer">
-            * Detaily anonymizované. Žiadne dáta klienta, žiadne interné systémy, žiadne porušenie NDA.
-          </div>
-        </aside>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider reveal"></div>
 
 <section class="mission zone-light" id="mission">
   <div class="container">
@@ -3873,7 +3805,7 @@
           <p data-i18n="contact.intro">Napíš mi pár riadkov o projekte. Odpovedám zvyčajne do 24 hodín, často skôr.</p>
 
           <div class="contact-meta">
-            <div class="row"><span data-i18n="cm.email">Email</span><span>hello@qavant.dev</span></div>
+            <div class="row"><span data-i18n="cm.email">Email</span><span>peterolah@qavant.dev</span></div>
             <div class="row"><span data-i18n="cm.loc">Lokalita</span><span>Bratislava · Remote</span></div>
             <div class="row"><span data-i18n="cm.lang">Jazyky</span><span>SK · EN · DE</span></div>
             <div class="row"><span data-i18n="cm.status">Stav</span><span style="color:var(--green);display:inline-flex;align-items:center;gap:8px;">● <span data-i18n="cm.statusVal">Prijímam projekty</span></span></div>
@@ -3935,7 +3867,7 @@
     <div class="foot-inner">
       <div class="foot-mark">© <span id="year"></span> Qavant — <em data-i18n="ft.tag">crafted in Bratislava</em></div>
       <div class="foot-contact">
-        <a href="mailto:hello@qavant.dev" data-cursor="hover">hello@qavant.dev</a>
+        <a href="mailto:peterolah@qavant.dev" data-cursor="hover">peterolah@qavant.dev</a>
         <span class="foot-sep">·</span>
         <a href="https://www.linkedin.com/in/peter-olah-8ab858137/" target="_blank" rel="noopener" data-cursor="hover" aria-label="LinkedIn">LinkedIn</a>
         <span class="foot-sep">·</span>
