@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://qavant.dev/" />
 
 <!-- Favicon (inline SVG — single file, no extra request) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230F0E0C'/%3E%3Cg%20stroke='%23B8881C'%20stroke-width='1.8'%20fill='none'%3E%3Cpath%20d='M3%208%20V3%20H8'/%3E%3Cpath%20d='M24%203%20H29%20V8'/%3E%3Cpath%20d='M29%2024%20V29%20H24'/%3E%3Cpath%20d='M8%2029%20H3%20V24'/%3E%3C/g%3E%3Ctext%20x='16'%20y='16'%20dy='.35em'%20text-anchor='middle'%20font-family='ui-monospace%2CMenlo%2CConsolas%2Cmonospace'%20font-weight='700'%20font-size='12.5'%20fill='%23D4AF37'%3EQA%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%231D4ED8'/%3E%3Cg%20stroke='%23FFFFFF'%20stroke-width='1.8'%20fill='none'%3E%3Cpath%20d='M3%208%20V3%20H8'/%3E%3Cpath%20d='M24%203%20H29%20V8'/%3E%3Cpath%20d='M29%2024%20V29%20H24'/%3E%3Cpath%20d='M8%2029%20H3%20V24'/%3E%3C/g%3E%3Ctext%20x='16'%20y='16'%20dy='.35em'%20text-anchor='middle'%20font-family='ui-monospace%2CMenlo%2CConsolas%2Cmonospace'%20font-weight='700'%20font-size='12.5'%20fill='%23FFFFFF'%3EQA%3C/text%3E%3C/svg%3E" />
 
 <!-- Open Graph (LinkedIn, Slack, WhatsApp, etc.) -->
 <meta property="og:type" content="website" />
@@ -31,7 +31,7 @@
 <meta name="twitter:image" content="https://qavant.dev/og-image.png" />
 
 <!-- Theme color for mobile browser chrome -->
-<meta name="theme-color" content="#0F0E0C" />
+<meta name="theme-color" content="#0A2540" />
 <!-- ============== SELF-HOSTED FONTS ==============
      Fonts are loaded from /fonts/ on the same origin (Netlify CDN).
      This eliminates any third-party transfer to Google CDN (Schrems II / Munich ruling concern).
@@ -113,22 +113,22 @@
   :root{
     /* ============== DUAL-TONE FORENSIC SYSTEM ============== */
     /* Default = DARK theme (used for hero, showcase, about, process, footer) */
-    --bg:#0F0E0C;
-    --bg-2:#161412;
-    --bg-3:#1C1815;
-    --ink:#F4EBD9;
-    --ink-2:#C8BFA8;
-    --ink-dim:#7A6F5C;
-    --line:rgba(244,235,217,0.06);
-    --line-2:rgba(244,235,217,0.14);
+    --bg:#0A2540;
+    --bg-2:#0D2C49;
+    --bg-3:#11385C;
+    --ink:#F4F8FD;
+    --ink-2:#B7CADF;
+    --ink-dim:#6E89A6;
+    --line:rgba(255,255,255,0.06);
+    --line-2:rgba(255,255,255,0.14);
 
     /* Accent colors stay consistent across themes */
-    --accent:#B8881C;       /* deeper gold — readable on cream */
-    --accent-bright:#D4AF37; /* matte gold — for dark sections */
-    --accent-2:#E8CB6A;     /* warm honey */
-    --accent-3:#7A0E0E;     /* deep oxblood */
-    --hot:#B22222;          /* firebrick */
-    --green:#7A8C5C;        /* sage moss */
+    --accent:#2563EB;       /* electric blue — primary accent */
+    --accent-bright:#3B82F6; /* bright blue — for dark sections */
+    --accent-2:#7DB3FF;     /* sky — light accent on dark */
+    --accent-3:#1D4ED8;     /* deep blue — secondary */
+    --hot:#2563EB;          /* electric blue */
+    --green:#3FB950;        /* semantic success green */
 
     --maxw:1320px;
     --radius:14px;
@@ -138,23 +138,23 @@
 
   /* ============== LIGHT ZONE — applied to .zone-light sections ============== */
   .zone-light{
-    --bg:#F4EBD9;          /* warm cream */
-    --bg-2:#EFE5D0;
-    --bg-3:#E8DDC4;
-    --ink:#1A1612;         /* warm near-black */
-    --ink-2:#3D352B;
-    --ink-dim:#7A6F5C;
-    --line:rgba(26,22,18,0.08);
-    --line-2:rgba(26,22,18,0.16);
-    --accent:#7A0E0E;      /* oxblood becomes primary on light */
-    --accent-bright:#7A0E0E;
-    --accent-2:#B8881C;    /* gold becomes secondary */
-    --accent-3:#D4AF37;
-    --hot:#B22222;
-    --green:#5A6B3D;       /* darker sage for cream readability */
+    --bg:#F4F8FD;          /* near-white */
+    --bg-2:#E9F1FB;
+    --bg-3:#DDEAF7;
+    --ink:#0B0F1A;         /* near-black navy */
+    --ink-2:#33425A;
+    --ink-dim:#6E89A6;
+    --line:rgba(11,15,26,0.08);
+    --line-2:rgba(11,15,26,0.16);
+    --accent:#1D4ED8;      /* deep blue — primary on light */
+    --accent-bright:#1D4ED8;
+    --accent-2:#2563EB;    /* electric blue — secondary */
+    --accent-3:#3B82F6;
+    --hot:#2563EB;
+    --green:#1A7F37;       /* success green, readable on light */
 
-    background:#F4EBD9;
-    color:#1A1612;
+    background:#F4F8FD;
+    color:#0B0F1A;
     position:relative;
     z-index:5;
   }
@@ -166,20 +166,20 @@
   .zone-light .process-step,
   .zone-light .metric{
     background:rgba(255,255,255,0.5);
-    border-color:rgba(26,22,18,0.12);
+    border-color:rgba(11,15,26,0.12);
   }
   .zone-light .service:hover,
   .zone-light .meta-card:hover,
   .zone-light .stat:hover,
   .zone-light .process-step:hover{
     background:rgba(255,255,255,0.8);
-    border-color:rgba(122,14,14,0.3);
+    border-color:rgba(29,78,216,0.3);
   }
 
   /* light zone gradient text */
   .zone-light h2 em,
   .zone-light h1 em{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
 
@@ -189,52 +189,52 @@
   .zone-light .bg-grain{display:none}
 
   /* light zone — section number in oxblood */
-  .zone-light .section-num{color:#7A0E0E}
-  .zone-light .section-num::before{background:#7A0E0E}
+  .zone-light .section-num{color:#1D4ED8}
+  .zone-light .section-num::before{background:#1D4ED8}
 
   /* light zone — eyebrow */
-  .zone-light .eyebrow{color:#7A0E0E}
-  .zone-light .eyebrow::before{background:#7A0E0E;box-shadow:none}
+  .zone-light .eyebrow{color:#1D4ED8}
+  .zone-light .eyebrow::before{background:#1D4ED8;box-shadow:none}
 
   /* light zone — buttons */
   .zone-light .btn-primary{
-    background:#1A1612;
-    color:#F4EBD9;
+    background:#0B0F1A;
+    color:#F4F8FD;
   }
   .zone-light .btn-primary::before{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
   }
   .zone-light .btn-ghost{
     background:rgba(255,255,255,0.4);
-    color:#1A1612;
-    border-color:rgba(26,22,18,0.16);
+    color:#0B0F1A;
+    border-color:rgba(11,15,26,0.16);
   }
   .zone-light .btn-ghost:hover{
-    border-color:#7A0E0E;
+    border-color:#1D4ED8;
     background:rgba(255,255,255,0.7);
-    color:#7A0E0E;
+    color:#1D4ED8;
   }
 
   /* light zone — service icons */
   .zone-light .service-icon{
-    background:linear-gradient(135deg,rgba(122,14,14,0.08),rgba(184,136,28,0.06));
-    border-color:rgba(26,22,18,0.12);
-    color:#7A0E0E;
+    background:linear-gradient(135deg,rgba(29,78,216,0.08),rgba(37,99,235,0.06));
+    border-color:rgba(11,15,26,0.12);
+    color:#1D4ED8;
   }
   .zone-light .service:hover .service-icon{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
-    color:#F4EBD9;
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
+    color:#F4F8FD;
   }
-  .zone-light .service ul{border-top-color:rgba(26,22,18,0.1)}
-  .zone-light .service ul li::before{color:#7A0E0E}
+  .zone-light .service ul{border-top-color:rgba(11,15,26,0.1)}
+  .zone-light .service ul li::before{color:#1D4ED8}
 
   /* light zone — stat number gradient */
   .zone-light .stat .num{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .zone-light .stat .num em{
-    background:linear-gradient(135deg,#B8881C,#D4AF37);
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
 
@@ -243,80 +243,80 @@
   .zone-light textarea,
   .zone-light select{
     background:rgba(255,255,255,0.7);
-    border-color:rgba(26,22,18,0.16);
-    color:#1A1612;
+    border-color:rgba(11,15,26,0.16);
+    color:#0B0F1A;
   }
   .zone-light input:focus,
   .zone-light textarea:focus,
   .zone-light select:focus{
-    border-color:#7A0E0E;
+    border-color:#1D4ED8;
     background:#FFFFFF;
-    box-shadow:0 0 0 4px rgba(122,14,14,0.10);
+    box-shadow:0 0 0 4px rgba(29,78,216,0.10);
   }
-  .zone-light label{color:#7A6F5C}
+  .zone-light label{color:#6E89A6}
 
   /* light zone — contact wrap */
   .zone-light .contact-wrap{
     background:
-      radial-gradient(80% 80% at 0% 0%,rgba(122,14,14,0.08),transparent 60%),
-      radial-gradient(60% 80% at 100% 100%,rgba(184,136,28,0.10),transparent 60%),
+      radial-gradient(80% 80% at 0% 0%,rgba(29,78,216,0.08),transparent 60%),
+      radial-gradient(60% 80% at 100% 100%,rgba(37,99,235,0.10),transparent 60%),
       rgba(255,255,255,0.4);
-    border-color:rgba(26,22,18,0.16);
+    border-color:rgba(11,15,26,0.16);
     backdrop-filter:none;
   }
 
   /* light zone — process step number */
   .zone-light .step-number .num{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .zone-light .step-number{color:#7A0E0E}
+  .zone-light .step-number{color:#1D4ED8}
   .zone-light .process-step .duration{
-    border-top-color:rgba(26,22,18,0.16);
-    color:#7A6F5C;
+    border-top-color:rgba(11,15,26,0.16);
+    color:#6E89A6;
   }
-  .zone-light .process-step .duration::before{color:#7A0E0E}
+  .zone-light .process-step .duration::before{color:#1D4ED8}
   .zone-light .process-grid{
-    border-color:rgba(26,22,18,0.16);
-    background:rgba(26,22,18,0.08);
+    border-color:rgba(11,15,26,0.16);
+    background:rgba(11,15,26,0.08);
   }
 
   /* light zone — contact meta */
   .zone-light .contact-meta .row{
-    border-top-color:rgba(26,22,18,0.1);
+    border-top-color:rgba(11,15,26,0.1);
   }
-  .zone-light .contact-meta .row span:first-child{color:#7A6F5C}
-  .zone-light .contact-meta .row span:last-child{color:#1A1612}
+  .zone-light .contact-meta .row span:first-child{color:#6E89A6}
+  .zone-light .contact-meta .row span:last-child{color:#0B0F1A}
 
   /* light zone — mission */
   .zone-light .mission-statement em{
-    background:linear-gradient(135deg,#7A0E0E 0%,#B8881C 50%,#D4AF37 100%);
+    background:linear-gradient(135deg,#1D4ED8 0%,#2563EB 50%,#3B82F6 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .zone-light .mission-inner::before{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     opacity:0.16;
   }
   .zone-light .principle::before{
-    background:linear-gradient(180deg,#7A0E0E,#B8881C);
+    background:linear-gradient(180deg,#1D4ED8,#2563EB);
   }
-  .zone-light .principle-num{color:#7A0E0E}
-  .zone-light .principles{border-top-color:rgba(26,22,18,0.16)}
+  .zone-light .principle-num{color:#1D4ED8}
+  .zone-light .principles{border-top-color:rgba(11,15,26,0.16)}
 
   /* light zone — interlude */
   .zone-light .interlude-text em{
-    background:linear-gradient(135deg,#7A0E0E,#B8881C);
+    background:linear-gradient(135deg,#1D4ED8,#2563EB);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
 
   /* light zone — divider */
   .zone-light .divider::before{
-    background:linear-gradient(90deg,transparent 0%,rgba(26,22,18,0.16) 20%,#7A0E0E 50%,rgba(26,22,18,0.16) 80%,transparent 100%);
+    background:linear-gradient(90deg,transparent 0%,rgba(11,15,26,0.16) 20%,#1D4ED8 50%,rgba(11,15,26,0.16) 80%,transparent 100%);
   }
   .zone-light .divider::after{
-    color:#7A0E0E;
-    background:#F4EBD9;
+    color:#1D4ED8;
+    background:#F4F8FD;
   }
 
   /* zone transition smoothing */
@@ -348,8 +348,8 @@
   .bg-grid{
     position:fixed;inset:0;
     background-image:
-      linear-gradient(rgba(212,175,55,0.045) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(212,175,55,0.045) 1px,transparent 1px);
+      linear-gradient(rgba(59,130,246,0.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(59,130,246,0.045) 1px,transparent 1px);
     background-size:64px 64px;
     mask-image:radial-gradient(ellipse 80% 70% at 50% 0%,#000 20%,transparent 80%);
     pointer-events:none;z-index:0;
@@ -357,9 +357,9 @@
   .bg-glow{
     position:fixed;inset:0;
     background:
-      radial-gradient(50% 35% at 80% 5%,rgba(212,175,55,0.20),transparent 70%),
-      radial-gradient(40% 30% at 10% 25%,rgba(232,203,106,0.10),transparent 70%),
-      radial-gradient(45% 40% at 50% 100%,rgba(122,14,14,0.08),transparent 75%);
+      radial-gradient(50% 35% at 80% 5%,rgba(59,130,246,0.20),transparent 70%),
+      radial-gradient(40% 30% at 10% 25%,rgba(125,179,255,0.10),transparent 70%),
+      radial-gradient(45% 40% at 50% 100%,rgba(29,78,216,0.08),transparent 75%);
     pointer-events:none;z-index:0;
   }
   .bg-grain{
@@ -377,13 +377,13 @@
     mix-blend-mode:difference;
   }
   .cursor-ring{
-    width:36px;height:36px;border:1px solid rgba(232,203,106,0.5);border-radius:50%;
+    width:36px;height:36px;border:1px solid rgba(125,179,255,0.5);border-radius:50%;
     transition:width .35s var(--ease-out),height .35s var(--ease-out),
       border-color .25s var(--ease),background .25s var(--ease);
   }
   .cursor-ring.is-hover{
-    width:64px;height:64px;border-color:rgba(232,203,106,0.9);
-    background:rgba(212,175,55,0.08);
+    width:64px;height:64px;border-color:rgba(125,179,255,0.9);
+    background:rgba(59,130,246,0.08);
   }
   .cursor-dot.is-hover{width:0;height:0}
 
@@ -500,7 +500,7 @@
   /* After assembly: brief flash on each letter as it lands */
   @keyframes logoLetterLand{
     0%{filter:brightness(1)}
-    40%{filter:brightness(1.6) drop-shadow(0 0 8px rgba(212,175,55,0.6))}
+    40%{filter:brightness(1.6) drop-shadow(0 0 8px rgba(59,130,246,0.6))}
     100%{filter:brightness(1)}
   }
   .logo.assembled .logo-letter{
@@ -587,13 +587,13 @@
   }
   .eyebrow .ping{
     width:6px;height:6px;border-radius:50%;background:var(--green);
-    box-shadow:0 0 0 0 rgba(122,140,92,0.6);
+    box-shadow:0 0 0 0 rgba(91,155,213,0.6);
     animation:ping 2s var(--ease-out) infinite;
   }
   @keyframes ping{
-    0%{box-shadow:0 0 0 0 rgba(122,140,92,0.7)}
-    70%{box-shadow:0 0 0 10px rgba(122,140,92,0)}
-    100%{box-shadow:0 0 0 0 rgba(122,140,92,0)}
+    0%{box-shadow:0 0 0 0 rgba(91,155,213,0.7)}
+    70%{box-shadow:0 0 0 10px rgba(91,155,213,0)}
+    100%{box-shadow:0 0 0 0 rgba(91,155,213,0)}
   }
 
   h1{
@@ -666,7 +666,7 @@
     background:rgba(255,255,255,0.02);color:var(--ink);
     border-color:var(--line-2);backdrop-filter:none;
   }
-  .btn-ghost:hover{border-color:var(--accent);background:rgba(212,175,55,0.06)}
+  .btn-ghost:hover{border-color:var(--accent);background:rgba(59,130,246,0.06)}
   .btn .arrow{display:inline-block;transition:transform .35s var(--ease)}
   .btn:hover .arrow{transform:translateX(4px)}
 
@@ -676,7 +676,7 @@
     font-family:'JetBrains Mono',monospace;font-size:13px;
     box-shadow:
       0 50px 120px rgba(0,0,0,0.6),
-      0 0 0 1px rgba(212,175,55,0.08),
+      0 0 0 1px rgba(59,130,246,0.08),
       inset 0 1px 0 rgba(255,255,255,0.05);
     position:relative;overflow:hidden;
     backdrop-filter:none;transform:translateZ(0);
@@ -688,7 +688,7 @@
   }
   .terminal::after{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(60% 50% at 50% 0%,rgba(212,175,55,0.08),transparent 70%);
+    background:radial-gradient(60% 50% at 50% 0%,rgba(59,130,246,0.08),transparent 70%);
     pointer-events:none;
   }
   .term-bar{
@@ -697,7 +697,7 @@
     background:rgba(0,0,0,0.2);
   }
   .term-bar .d{width:11px;height:11px;border-radius:50%}
-  .d.r{background:#FF6B6B} .d.y{background:#FFC857} .d.g{background:var(--green)}
+  .d.r{background:#3B82F6} .d.y{background:#93C5FD} .d.g{background:var(--green)}
   .term-title{
     color:var(--ink-dim);font-size:11px;margin-left:10px;letter-spacing:0.04em;
   }
@@ -771,10 +771,10 @@
   .service::before{
     content:"";position:absolute;inset:0;border-radius:22px;
     background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),
-      rgba(212,175,55,0.18),transparent 60%);
+      rgba(59,130,246,0.18),transparent 60%);
     opacity:0;transition:opacity .4s var(--ease);pointer-events:none;
   }
-  .service:hover{border-color:rgba(212,175,55,0.35);transform:translateY(-4px)}
+  .service:hover{border-color:rgba(59,130,246,0.35);transform:translateY(-4px)}
   .service:hover::before{opacity:1}
 
   .service-num{
@@ -783,7 +783,7 @@
   }
   .service-icon{
     width:56px;height:56px;border-radius:14px;
-    background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(122,14,14,0.1));
+    background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(29,78,216,0.1));
     border:1px solid var(--line-2);
     display:flex;align-items:center;justify-content:center;
     margin-bottom:28px;color:var(--accent-2);
@@ -832,7 +832,7 @@
     border:1px solid var(--line-2);border-radius:18px;padding:32px 26px;
     transition:border-color .3s var(--ease);
   }
-  .stat:hover{border-color:rgba(212,175,55,0.3)}
+  .stat:hover{border-color:rgba(59,130,246,0.3)}
   .stat .num{
     font-family:'Fraunces',serif;font-size:56px;font-weight:300;
     line-height:1;letter-spacing:-0.03em;
@@ -895,17 +895,17 @@
   }
   .curtain-half{
     flex:1;
-    background:#06050B;
+    background:#050E1A;
     position:relative;
     overflow:hidden;
     transform:translateY(0);
     transition:transform 1.2s cubic-bezier(.76,0,.24,1);
   }
   .curtain-half.top{
-    border-bottom:1px solid rgba(212,175,55,0.4);
+    border-bottom:1px solid rgba(59,130,246,0.4);
   }
   .curtain-half.bottom{
-    border-top:1px solid rgba(212,175,55,0.4);
+    border-top:1px solid rgba(59,130,246,0.4);
   }
   .curtain.gone .curtain-half.top{transform:translateY(-101%)}
   .curtain.gone .curtain-half.bottom{transform:translateY(101%)}
@@ -924,12 +924,12 @@
     font-size:72px;
     line-height:1;
     color:var(--ink);
-    filter:drop-shadow(0 0 30px rgba(212,175,55,0.45));
+    filter:drop-shadow(0 0 30px rgba(59,130,246,0.45));
     white-space:nowrap;
   }
   .curtain-mark .cm-letter{
     display:inline-block;
-    color:#F4EBD9;
+    color:#F4F8FD;
     text-transform:uppercase;
     opacity:0;
     margin-right:-6px;
@@ -938,7 +938,7 @@
   .curtain-mark .cm-letter:last-child{margin-right:0}
   /* Q in gold — signature accent */
   .curtain-mark .cm-letter.cm-q{
-    color:#D4AF37;
+    color:#3B82F6;
   }
 
   /* Initial offsets — each letter starts far from final position */
@@ -966,7 +966,7 @@
   }
   @keyframes cmLetterFlash{
     0%,30%{filter:brightness(1)}
-    50%{filter:brightness(1.8) drop-shadow(0 0 12px rgba(212,175,55,0.7))}
+    50%{filter:brightness(1.8) drop-shadow(0 0 12px rgba(59,130,246,0.7))}
     100%{filter:brightness(1)}
   }
 
@@ -979,10 +979,10 @@
     width:340px;
     max-width:60vw;
     height:2px;
-    background:linear-gradient(90deg,#D4AF37,#7A0E0E);
+    background:linear-gradient(90deg,#3B82F6,#1D4ED8);
     z-index:9510;
     animation:cmBarSweep .6s cubic-bezier(.7,0,.15,1) 1.55s forwards;
-    box-shadow:0 0 16px rgba(212,175,55,0.5);
+    box-shadow:0 0 16px rgba(59,130,246,0.5);
   }
   @keyframes cmBarSweep{
     to{transform:translateX(-50%) scaleX(1)}
@@ -993,7 +993,7 @@
     animation:curtainMarkOut .35s cubic-bezier(.5,0,.75,0) forwards;
   }
   @keyframes curtainMarkOut{
-    0%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0px) drop-shadow(0 0 30px rgba(212,175,55,0.45))}
+    0%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0px) drop-shadow(0 0 30px rgba(59,130,246,0.45))}
     100%{opacity:0;transform:translate(-50%,-50%) scale(1.18);filter:blur(3px) drop-shadow(0 0 0 transparent)}
   }
   .curtain.gone .curtain-bar{
@@ -1013,7 +1013,7 @@
     top:50%;left:50%;
     transform:translate(-50%,-50%);
     width:0;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(212,175,55,0.5) 35%,rgba(232,203,106,0.7) 50%,rgba(212,175,55,0.5) 65%,transparent);
+    background:linear-gradient(90deg,transparent,rgba(59,130,246,0.5) 35%,rgba(125,179,255,0.7) 50%,rgba(59,130,246,0.5) 65%,transparent);
     z-index:9505;
     animation:curtainLineIn 1.1s cubic-bezier(.16,1,.3,1) 0.55s forwards;
   }
@@ -1029,7 +1029,7 @@
     transform:translateX(-50%);
     font-family:'JetBrains Mono',monospace;
     font-size:10px;
-    color:rgba(232,213,178,0.5);
+    color:rgba(255,255,255,0.5);
     letter-spacing:0.36em;
     text-transform:uppercase;
     z-index:9510;
@@ -1067,7 +1067,7 @@
     z-index:200;
     will-change:width;
     transition:width .1s linear,opacity .3s ease;
-    box-shadow:0 0 12px rgba(212,175,55,0.5);
+    box-shadow:0 0 12px rgba(59,130,246,0.5);
   }
   .scroll-progress.idle{opacity:0.4}
 
@@ -1119,8 +1119,8 @@
   }
   .cursor-ring.is-large{
     width:88px;height:88px;
-    border-color:rgba(232,203,106,0.4);
-    background:rgba(212,175,55,0.06);
+    border-color:rgba(125,179,255,0.4);
+    background:rgba(59,130,246,0.06);
   }
   .cursor-ring .cursor-label{
     position:absolute;
@@ -1233,7 +1233,7 @@
     padding:40px;
     overflow:auto;
     background:
-      radial-gradient(60% 50% at 50% 0%,rgba(212,175,55,0.06),transparent 70%),
+      radial-gradient(60% 50% at 50% 0%,rgba(59,130,246,0.06),transparent 70%),
       rgba(6,9,26,0.4);
     display:none;
     flex-direction:column;
@@ -1334,7 +1334,7 @@
     background:linear-gradient(180deg,rgba(15,23,56,0.95),rgba(6,9,26,0.98));
     box-shadow:
       0 60px 140px rgba(0,0,0,0.7),
-      0 0 0 1px rgba(212,175,55,0.06),
+      0 0 0 1px rgba(59,130,246,0.06),
       inset 0 1px 0 rgba(255,255,255,0.04);
     backdrop-filter:none;
     position:relative;
@@ -1409,13 +1409,13 @@
     position:relative;
   }
   @media (pointer:coarse){.tree-file{cursor:pointer}}
-  .tree-file svg{width:13px;height:13px;flex-shrink:0;color:#E8A87C}
+  .tree-file svg{width:13px;height:13px;flex-shrink:0;color:#5B9BD5}
   .tree-file:hover{
-    background:rgba(212,175,55,0.06);
+    background:rgba(59,130,246,0.06);
     color:var(--ink-2);
   }
   .tree-file.active{
-    background:linear-gradient(90deg,rgba(212,175,55,0.16),rgba(212,175,55,0.04));
+    background:linear-gradient(90deg,rgba(59,130,246,0.16),rgba(59,130,246,0.04));
     color:var(--ink);
   }
   .tree-file.active::before{
@@ -1483,17 +1483,17 @@
     font-size:11px;
     user-select:none;
   }
-  .ide-code .code{flex:1;color:var(--ink-2);white-space:pre}
+  .ide-code .code{flex:1;color:#D6DEEB;white-space:pre}
 
   /* Java syntax highlighting */
-  .ide-code .kw{color:#D4AF37}      /* keywords: public, class, import */
-  .ide-code .typ{color:#E8CB6A}     /* types: WebDriver, String */
-  .ide-code .str{color:#A89968}     /* strings */
-  .ide-code .com{color:#5C5347;font-style:italic} /* comments */
-  .ide-code .ann{color:#E8A04A}     /* annotations: @FindBy */
-  .ide-code .num{color:#B22222}     /* numbers */
-  .ide-code .fn{color:#E8CB6A}      /* function names */
-  .ide-code .pkg{color:#7A6F5C}     /* package paths */
+  .ide-code .kw{color:#C792EA}      /* keywords: public, class, import */
+  .ide-code .typ{color:#FFCB6B}     /* types: WebDriver, String */
+  .ide-code .str{color:#ECC48D}     /* strings */
+  .ide-code .com{color:#637777;font-style:italic} /* comments */
+  .ide-code .ann{color:#7FDBCA}     /* annotations: @FindBy */
+  .ide-code .num{color:#F78C6C}     /* numbers */
+  .ide-code .fn{color:#82AAFF}      /* function names */
+  .ide-code .pkg{color:#8AA0BC}     /* package paths */
 
   .ide-status{
     border-top:1px solid var(--line);
@@ -1521,8 +1521,8 @@
     margin-top:80px;
     padding:36px 44px;
     border-radius:20px;
-    background:linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
-    border:1px solid rgba(212,175,55,0.18);
+    background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(59,130,246,0.02));
+    border:1px solid rgba(59,130,246,0.18);
     position:relative;
     overflow:hidden;
   }
@@ -1531,11 +1531,11 @@
     position:absolute;
     top:0; left:0; right:0;
     height:1px;
-    background:linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
+    background:linear-gradient(90deg, transparent, rgba(59,130,246,0.6), transparent);
   }
   .mid-cta-dark{
-    background:linear-gradient(135deg, rgba(212,175,55,0.06), rgba(11,17,48,0.4));
-    border-color:rgba(212,175,55,0.22);
+    background:linear-gradient(135deg, rgba(59,130,246,0.06), rgba(11,17,48,0.4));
+    border-color:rgba(59,130,246,0.22);
   }
   .mid-cta-inner{
     display:grid;
@@ -1568,7 +1568,7 @@
     margin:0;
     max-width:540px;
   }
-  .mid-cta-dark .mid-cta-desc{color:rgba(244,235,217,0.7)}
+  .mid-cta-dark .mid-cta-desc{color:rgba(255,255,255,0.7)}
   @media (max-width:760px){
     .mid-cta{padding:28px 24px;margin-top:60px}
     .mid-cta-inner{grid-template-columns:1fr;gap:24px}
@@ -1602,7 +1602,7 @@
   }
   .story-title em{
     font-style:italic;
-    background:linear-gradient(120deg, #D4AF37, #E8CB6A);
+    background:linear-gradient(120deg, #3B82F6, #7DB3FF);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -1614,19 +1614,19 @@
     align-items:start;
   }
   .story-body{font-size:17px;line-height:1.75;color:var(--cream);}
-  .story-body p{margin:0 0 22px 0;color:rgba(244,235,217,0.85)}
+  .story-body p{margin:0 0 22px 0;color:rgba(255,255,255,0.85)}
   .story-body code{
     font-family:var(--mono);
     font-size:14px;
     padding:2px 8px;
-    background:rgba(212,175,55,0.1);
+    background:rgba(59,130,246,0.1);
     color:var(--accent-2);
     border-radius:4px;
   }
   .story-pull{
     padding:18px 24px;
     border-left:3px solid var(--accent-3);
-    background:rgba(122,14,14,0.06);
+    background:rgba(29,78,216,0.06);
     font-style:italic;
     font-size:18px;
     color:var(--cream) !important;
@@ -1635,8 +1635,8 @@
   .story-takeaway{
     margin-top:32px !important;
     padding:24px 28px;
-    background:linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
-    border:1px solid rgba(212,175,55,0.2);
+    background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(59,130,246,0.02));
+    border:1px solid rgba(59,130,246,0.2);
     border-radius:12px;
     color:var(--cream) !important;
   }
@@ -1644,7 +1644,7 @@
   .story-meta{
     padding:28px 24px;
     background:linear-gradient(180deg, rgba(11,17,48,0.5), rgba(6,9,26,0.3));
-    border:1px solid rgba(212,175,55,0.15);
+    border:1px solid rgba(59,130,246,0.15);
     border-radius:14px;
     position:sticky;
     top:100px;
@@ -1652,7 +1652,7 @@
   .story-meta-item{
     padding-bottom:16px;
     margin-bottom:16px;
-    border-bottom:1px solid rgba(216,207,184,0.1);
+    border-bottom:1px solid rgba(255,255,255,0.1);
   }
   .story-meta-item:last-of-type{border-bottom:0;margin-bottom:8px}
   .story-meta-label{
@@ -1669,15 +1669,15 @@
     line-height:1.3;
     color:var(--cream);
   }
-  .story-meta-val-success{color:#7A8C5C}
+  .story-meta-val-success{color:#5B9BD5}
   .story-meta-disclaimer{
     margin-top:16px;
     padding-top:16px;
-    border-top:1px solid rgba(216,207,184,0.1);
+    border-top:1px solid rgba(255,255,255,0.1);
     font-family:var(--mono);
     font-size:11px;
     line-height:1.55;
-    color:rgba(216,207,184,0.5);
+    color:rgba(255,255,255,0.5);
     font-style:italic;
   }
   @media (max-width:900px){
@@ -1695,7 +1695,7 @@
     padding:22px 24px;
     transition:border-color .3s var(--ease);
   }
-  .meta-card:hover{border-color:rgba(212,175,55,0.3)}
+  .meta-card:hover{border-color:rgba(59,130,246,0.3)}
   .meta-card .icon{
     color:var(--accent-2);margin-bottom:14px;
     display:inline-flex;
@@ -1728,7 +1728,7 @@
   .tech-tag:hover{
     border-color:var(--accent);
     color:var(--accent-2);
-    background:rgba(212,175,55,0.05);
+    background:rgba(59,130,246,0.05);
   }
 
   /* ============== FRAMEWORK TABS ============== */
@@ -1762,12 +1762,12 @@
   }
   .fw-tab .fw-icon svg{width:18px;height:18px}
   .fw-tab:hover{
-    border-color:rgba(212,175,55,0.3);
+    border-color:rgba(59,130,246,0.3);
     color:var(--ink);
   }
   .fw-tab:hover .fw-icon{color:var(--accent-2)}
   .fw-tab.active{
-    background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(122,14,14,0.1));
+    background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(29,78,216,0.1));
     border-color:var(--accent);
     color:var(--ink);
   }
@@ -1821,7 +1821,7 @@
     background:linear-gradient(135deg,var(--accent),var(--accent-3));
     border-radius:14px;
     color:var(--bg);
-    box-shadow:0 12px 40px rgba(212,175,55,0.4);
+    box-shadow:0 12px 40px rgba(59,130,246,0.4);
   }
   .lock-icon svg{width:22px;height:22px}
   .lock-card h4{
@@ -1867,8 +1867,8 @@
     top:var(--hy,40%);
     transform:translate(-50%,-50%);
     background:radial-gradient(circle,
-      rgba(212,175,55,0.22) 0%,
-      rgba(232,203,106,0.10) 30%,
+      rgba(59,130,246,0.22) 0%,
+      rgba(125,179,255,0.10) 30%,
       transparent 65%);
     filter:blur(40px);
     transition:opacity .6s var(--ease);
@@ -1912,7 +1912,7 @@
   .metric-label .live-dot{
     width:5px;height:5px;border-radius:50%;
     background:var(--green);
-    box-shadow:0 0 0 0 rgba(122,140,92,0.6);
+    box-shadow:0 0 0 0 rgba(91,155,213,0.6);
     animation:ping 2s var(--ease-out) infinite;
   }
   .metric-label .demo-tag{
@@ -1938,6 +1938,7 @@
     font-style:normal;
     font-weight:400;
   }
+  #metricTests{color:var(--green)}
   .metric-value .pass{
     color:var(--green);
     font-style:italic;
@@ -2109,7 +2110,7 @@
     position:absolute;
     inset:0;
     background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),
-      rgba(212,175,55,0.12),transparent 60%);
+      rgba(59,130,246,0.12),transparent 60%);
     opacity:0;
     transition:opacity .4s var(--ease);
     pointer-events:none;
@@ -2191,8 +2192,8 @@
 
   .contact-wrap{
     background:
-      radial-gradient(80% 80% at 0% 0%,rgba(212,175,55,0.10),transparent 60%),
-      radial-gradient(60% 80% at 100% 100%,rgba(122,14,14,0.10),transparent 60%),
+      radial-gradient(80% 80% at 0% 0%,rgba(59,130,246,0.10),transparent 60%),
+      radial-gradient(60% 80% at 100% 100%,rgba(29,78,216,0.10),transparent 60%),
       linear-gradient(180deg,rgba(15,23,56,0.6),rgba(11,17,48,0.4));
     border:1px solid var(--line-2);border-radius:28px;
     padding:72px;position:relative;overflow:hidden;backdrop-filter:none;
@@ -2200,7 +2201,7 @@
   .contact-wrap::before{
     content:"";position:absolute;inset:0;
     background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),
-      rgba(232,203,106,0.10),transparent 50%);
+      rgba(125,179,255,0.10),transparent 50%);
     pointer-events:none;
   }
   @media (max-width:720px){.contact-wrap{padding:44px 28px}}
@@ -2241,7 +2242,7 @@
   }
   input:focus,textarea:focus,select:focus{
     outline:none;border-color:var(--accent);background:rgba(0,0,0,0.5);
-    box-shadow:0 0 0 4px rgba(212,175,55,0.12);
+    box-shadow:0 0 0 4px rgba(59,130,246,0.12);
   }
   textarea{min-height:140px}
   .row-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -2622,7 +2623,7 @@
     }
     .tree-file svg{width:11px;height:11px}
     .tree-file.active{
-      background:linear-gradient(135deg,rgba(212,175,55,0.18),rgba(212,175,55,0.06));
+      background:linear-gradient(135deg,rgba(59,130,246,0.18),rgba(59,130,246,0.06));
       box-shadow:inset 0 0 0 1px var(--accent-bright,var(--accent));
     }
     .tree-file.active::before{display:none}
@@ -3475,80 +3476,80 @@
             <svg class="arch-svg" id="archSvg" viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="grad-test" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#D4AF37" stop-opacity="0.18"/>
-                  <stop offset="1" stop-color="#D4AF37" stop-opacity="0.05"/>
+                  <stop offset="0" stop-color="#3B82F6" stop-opacity="0.18"/>
+                  <stop offset="1" stop-color="#3B82F6" stop-opacity="0.05"/>
                 </linearGradient>
                 <linearGradient id="grad-page" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#E8CB6A" stop-opacity="0.16"/>
-                  <stop offset="1" stop-color="#E8CB6A" stop-opacity="0.04"/>
+                  <stop offset="0" stop-color="#7DB3FF" stop-opacity="0.16"/>
+                  <stop offset="1" stop-color="#7DB3FF" stop-opacity="0.04"/>
                 </linearGradient>
                 <linearGradient id="grad-core" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#7A0E0E" stop-opacity="0.16"/>
-                  <stop offset="1" stop-color="#7A0E0E" stop-opacity="0.04"/>
+                  <stop offset="0" stop-color="#1D4ED8" stop-opacity="0.16"/>
+                  <stop offset="1" stop-color="#1D4ED8" stop-opacity="0.04"/>
                 </linearGradient>
                 <linearGradient id="grad-ci" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#7A8C5C" stop-opacity="0.14"/>
-                  <stop offset="1" stop-color="#7A8C5C" stop-opacity="0.04"/>
+                  <stop offset="0" stop-color="#5B9BD5" stop-opacity="0.14"/>
+                  <stop offset="1" stop-color="#5B9BD5" stop-opacity="0.04"/>
                 </linearGradient>
                 <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                  <polygon points="0 0, 10 5, 0 10" fill="#D4AF37" opacity="0.7"/>
+                  <polygon points="0 0, 10 5, 0 10" fill="#3B82F6" opacity="0.7"/>
                 </marker>
               </defs>
 
               <!-- LAYER 1: TESTS (top) -->
               <g class="arch-node">
-                <rect x="200" y="20" width="300" height="64" rx="12" fill="url(#grad-test)" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="1"/>
-                <text x="350" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8CB6A" letter-spacing="2">TESTS LAYER</text>
-                <text x="350" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4EBD9">@Test methods · TestNG · Allure</text>
+                <rect x="200" y="20" width="300" height="64" rx="12" fill="url(#grad-test)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+                <text x="350" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7DB3FF" letter-spacing="2">TESTS LAYER</text>
+                <text x="350" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">@Test methods · TestNG · Allure</text>
               </g>
 
               <!-- LAYER 2: PAGES -->
               <g class="arch-node">
-                <rect x="60" y="140" width="260" height="64" rx="12" fill="url(#grad-page)" stroke="#E8CB6A" stroke-opacity="0.4" stroke-width="1"/>
-                <text x="190" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8CB6A" letter-spacing="2">PAGE OBJECTS</text>
-                <text x="190" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4EBD9">LoginPage · DashboardPage</text>
+                <rect x="60" y="140" width="260" height="64" rx="12" fill="url(#grad-page)" stroke="#7DB3FF" stroke-opacity="0.4" stroke-width="1"/>
+                <text x="190" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7DB3FF" letter-spacing="2">PAGE OBJECTS</text>
+                <text x="190" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">LoginPage · DashboardPage</text>
               </g>
 
               <g class="arch-node">
-                <rect x="380" y="140" width="260" height="64" rx="12" fill="url(#grad-page)" stroke="#E8CB6A" stroke-opacity="0.4" stroke-width="1"/>
-                <text x="510" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8CB6A" letter-spacing="2">TEST DATA</text>
-                <text x="510" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4EBD9">Builders · Fixtures · Mocks</text>
+                <rect x="380" y="140" width="260" height="64" rx="12" fill="url(#grad-page)" stroke="#7DB3FF" stroke-opacity="0.4" stroke-width="1"/>
+                <text x="510" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7DB3FF" letter-spacing="2">TEST DATA</text>
+                <text x="510" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">Builders · Fixtures · Mocks</text>
               </g>
 
               <!-- LAYER 3: CORE -->
               <g class="arch-node">
-                <rect x="100" y="260" width="500" height="64" rx="12" fill="url(#grad-core)" stroke="#7A0E0E" stroke-opacity="0.4" stroke-width="1"/>
-                <text x="350" y="288" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7A0E0E" letter-spacing="2">CORE / FRAMEWORK</text>
-                <text x="350" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4EBD9">DriverFactory · BasePage · Wait helpers · Logger</text>
+                <rect x="100" y="260" width="500" height="64" rx="12" fill="url(#grad-core)" stroke="#1D4ED8" stroke-opacity="0.4" stroke-width="1"/>
+                <text x="350" y="288" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#1D4ED8" letter-spacing="2">CORE / FRAMEWORK</text>
+                <text x="350" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">DriverFactory · BasePage · Wait helpers · Logger</text>
               </g>
 
               <!-- LAYER 4: INFRA -->
               <g class="arch-node">
-                <rect x="60" y="380" width="260" height="64" rx="12" fill="url(#grad-ci)" stroke="#7A8C5C" stroke-opacity="0.4" stroke-width="1"/>
-                <text x="190" y="408" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7A8C5C" letter-spacing="2">CI / CD</text>
-                <text x="190" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4EBD9">Jenkins · GitLab CI · GitHub Actions</text>
+                <rect x="60" y="380" width="260" height="64" rx="12" fill="url(#grad-ci)" stroke="#5B9BD5" stroke-opacity="0.4" stroke-width="1"/>
+                <text x="190" y="408" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#5B9BD5" letter-spacing="2">CI / CD</text>
+                <text x="190" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">Jenkins · GitLab CI · GitHub Actions</text>
               </g>
 
               <g class="arch-node">
-                <rect x="380" y="380" width="260" height="64" rx="12" fill="url(#grad-ci)" stroke="#7A8C5C" stroke-opacity="0.4" stroke-width="1"/>
-                <text x="510" y="408" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7A8C5C" letter-spacing="2">REPORTS</text>
-                <text x="510" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4EBD9">Allure · Screenshots · Logs</text>
+                <rect x="380" y="380" width="260" height="64" rx="12" fill="url(#grad-ci)" stroke="#5B9BD5" stroke-opacity="0.4" stroke-width="1"/>
+                <text x="510" y="408" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#5B9BD5" letter-spacing="2">REPORTS</text>
+                <text x="510" y="428" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">Allure · Screenshots · Logs</text>
               </g>
 
               <!-- CONNECTING LINES -->
-              <line class="arch-line" x1="350" y1="84" x2="190" y2="140" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-              <line class="arch-line" x1="350" y1="84" x2="510" y2="140" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-              <line class="arch-line" x1="190" y1="204" x2="280" y2="260" stroke="#E8CB6A" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-              <line class="arch-line" x1="510" y1="204" x2="420" y2="260" stroke="#E8CB6A" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-              <line class="arch-line" x1="280" y1="324" x2="190" y2="380" stroke="#7A0E0E" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-              <line class="arch-line" x1="420" y1="324" x2="510" y2="380" stroke="#7A0E0E" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line class="arch-line" x1="350" y1="84" x2="190" y2="140" stroke="#3B82F6" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line class="arch-line" x1="350" y1="84" x2="510" y2="140" stroke="#3B82F6" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line class="arch-line" x1="190" y1="204" x2="280" y2="260" stroke="#7DB3FF" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line class="arch-line" x1="510" y1="204" x2="420" y2="260" stroke="#7DB3FF" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line class="arch-line" x1="280" y1="324" x2="190" y2="380" stroke="#1D4ED8" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line class="arch-line" x1="420" y1="324" x2="510" y2="380" stroke="#1D4ED8" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
             </svg>
 
             <div class="arch-legend">
-              <span><span class="swatch" style="background:#D4AF37"></span> <span data-i18n="arch.l1">Test Layer</span></span>
-              <span><span class="swatch" style="background:#E8CB6A"></span> <span data-i18n="arch.l2">Page Layer</span></span>
-              <span><span class="swatch" style="background:#7A0E0E"></span> <span data-i18n="arch.l3">Framework Core</span></span>
-              <span><span class="swatch" style="background:#7A8C5C"></span> <span data-i18n="arch.l4">Infrastructure</span></span>
+              <span><span class="swatch" style="background:#3B82F6"></span> <span data-i18n="arch.l1">Test Layer</span></span>
+              <span><span class="swatch" style="background:#7DB3FF"></span> <span data-i18n="arch.l2">Page Layer</span></span>
+              <span><span class="swatch" style="background:#1D4ED8"></span> <span data-i18n="arch.l3">Framework Core</span></span>
+              <span><span class="swatch" style="background:#5B9BD5"></span> <span data-i18n="arch.l4">Infrastructure</span></span>
             </div>
           </div>
 
@@ -3653,7 +3654,7 @@
   .li-banner{max-width:760px;margin:48px auto 0;padding:0 24px;}
   .li-card{position:relative;display:flex;align-items:center;gap:18px;padding:24px 28px;
     border:1px solid var(--line-2);border-radius:16px;
-    background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(122,14,14,0.05));
+    background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(29,78,216,0.05));
     text-decoration:none;overflow:hidden;
     transition:transform .3s var(--ease-out),border-color .3s var(--ease-out),box-shadow .3s var(--ease-out);}
   .li-card:hover{transform:translateY(-3px);border-color:var(--accent-bright);box-shadow:0 14px 40px rgba(0,0,0,.35);}
