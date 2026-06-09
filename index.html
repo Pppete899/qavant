@@ -2954,6 +2954,9 @@
   /* ============== SMALL MOBILE (≤390px) ============== */
   @media (max-width:390px){
     .container{padding:0 16px}
+    /* keep edge-bleed tabs aligned with the 16px container padding
+       (was inheriting -20px from the 640px block -> 4px horizontal overflow) */
+    .fw-tabs{margin:0 -16px 24px;padding:4px 16px}
     section{padding:64px 0}
 
     .hero{padding:108px 0 48px}
