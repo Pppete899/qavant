@@ -569,12 +569,12 @@
   }
 
   h1{
-    font-family:'JetBrains Mono',monospace;font-weight:300;
-    font-size:clamp(48px,9vw,124px);line-height:0.96;
-    letter-spacing:-0.035em;margin:0 0 36px;
+    font-family:'JetBrains Mono',monospace;font-weight:700;
+    font-size:clamp(30px,3.8vw,52px);line-height:1.1;
+    letter-spacing:-0.015em;margin:0 0 36px;
   }
   h1 em{
-    font-style:italic;font-weight:200;
+    font-style:italic;font-weight:700;
   }
   /* Apply gradient text to the SPANS inside em.word (the actual text holders) */
   h1 em .word > span{
@@ -721,12 +721,12 @@
   .section-num::before{content:"";width:24px;height:1px;background:var(--accent-2)}
 
   h2{
-    font-family:'JetBrains Mono',monospace;font-weight:300;
-    font-size:clamp(40px,6vw,76px);line-height:1.02;
-    letter-spacing:-0.025em;margin:0;max-width:880px;
+    font-family:'JetBrains Mono',monospace;font-weight:500;
+    font-size:clamp(38px,5.6vw,72px);line-height:1.05;
+    letter-spacing:-0.012em;margin:0;max-width:880px;
   }
   h2 em{
-    font-style:italic;font-weight:200;
+    font-style:italic;font-weight:500;
     background:linear-gradient(135deg,var(--accent),var(--accent-3));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
@@ -791,7 +791,7 @@
   }
   .about-text p.dim{color:var(--ink-2);font-size:17px}
   .about-text .pull{
-    font-family:'JetBrains Mono',monospace;font-style:italic;font-weight:300;
+    font-family:'JetBrains Mono',monospace;font-style:italic;font-weight:400;
     font-size:28px;line-height:1.3;color:var(--ink);
     padding:24px 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);
     margin:32px 0;letter-spacing:-0.01em;
@@ -806,7 +806,7 @@
   }
   .stat:hover{border-color:rgba(59,130,246,0.3)}
   .stat .num{
-    font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:300;
+    font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:500;
     line-height:1;letter-spacing:-0.03em;
     background:linear-gradient(135deg,var(--accent-2),var(--accent));
     -webkit-background-clip:text;background-clip:text;color:transparent;
@@ -1133,7 +1133,7 @@
   }
   .interlude-text{
     font-family:'JetBrains Mono',monospace;
-    font-weight:200;
+    font-weight:400;
     font-style:italic;
     font-size:clamp(28px,4.5vw,56px);
     line-height:1.25;
@@ -1896,7 +1896,7 @@
   }
   .metric-value{
     font-family:'JetBrains Mono',monospace;
-    font-weight:300;
+    font-weight:500;
     font-size:24px;
     line-height:1.1;
     letter-spacing:-0.02em;
@@ -1958,7 +1958,7 @@
     transform:translateX(-50%);
     font-family:'JetBrains Mono',monospace;
     font-style:italic;
-    font-weight:200;
+    font-weight:400;
     font-size:160px;
     line-height:1;
     background:linear-gradient(135deg,var(--accent),var(--accent-3));
@@ -1981,10 +1981,10 @@
 
   .mission-statement{
     font-family:'JetBrains Mono',monospace;
-    font-weight:300;
-    font-size:clamp(28px,4.2vw,52px);
-    line-height:1.25;
-    letter-spacing:-0.02em;
+    font-weight:400;
+    font-size:clamp(22px,3.2vw,38px);
+    line-height:1.4;
+    letter-spacing:-0.01em;
     color:var(--ink);
     margin-bottom:60px;
     text-wrap:balance;
@@ -2101,7 +2101,7 @@
   .step-number .num{
     font-family:'JetBrains Mono',monospace;
     font-style:italic;
-    font-weight:300;
+    font-weight:500;
     font-size:42px;
     line-height:1;
     background:linear-gradient(135deg,var(--accent),var(--accent-3));
@@ -2309,7 +2309,7 @@
     .section-head{margin-bottom:56px}
     .hero{padding:140px 0 80px;min-height:auto}
     .hero-grid{gap:48px}
-    h1{font-size:clamp(44px,8vw,84px)}
+    h1{font-size:clamp(30px,6vw,56px)}
     .mission{padding:100px 0}
     .mission-statement{font-size:clamp(26px,4vw,42px)}
     .stats{grid-template-columns:1fr 1fr}
@@ -2383,9 +2383,9 @@
 
     /* H1: balanced for narrow viewport, no overflow */
     h1{
-      font-size:clamp(40px,11vw,56px);
-      line-height:1.02;
-      letter-spacing:-0.025em;
+      font-size:clamp(22px,6.4vw,44px);
+      line-height:1.08;
+      letter-spacing:-0.015em;
       margin:0 0 28px;
       hyphens:none;
       word-break:keep-all;
@@ -2957,7 +2957,7 @@
     section{padding:64px 0}
 
     .hero{padding:108px 0 48px}
-    h1{font-size:36px;line-height:1.04}
+    h1{font-size:clamp(20px,6.6vw,26px);line-height:1.08}
     .hero-sub{font-size:14.5px}
     h2{font-size:28px}
 
@@ -3639,7 +3639,7 @@
   .li-icon svg{width:26px;height:26px;fill:#fff;}
   .li-text{display:flex;flex-direction:column;gap:2px;}
   .li-kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#60A5FA;}
-  .li-name{font-family:'JetBrains Mono',monospace;font-size:21px;color:#F4F8FD;font-weight:600;line-height:1.1;}
+  .li-name{font-family:'JetBrains Mono',monospace;font-size:21px;color:#F4F8FD;font-weight:700;line-height:1.1;}
   .li-handle{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8AA0BC;}
   .li-arrow{margin-left:auto;color:#8AA0BC;font-size:24px;line-height:1;
     transition:transform .3s var(--ease-out),color .3s;}
@@ -3674,9 +3674,9 @@
       <div class="mission-kicker"><span data-i18n="mission.kicker">Manifesto</span></div>
 
       <p class="mission-statement">
-        <span data-i18n="mission.s1">Veril som, že QA je o hľadaní bugov.</span>
-        <em data-i18n="mission.s2">Nie je. Je to o tom, postaviť veci tak,</em>
-        <span data-i18n="mission.s3">aby vývojári v piatok večer mohli zatvoriť laptop bez obáv.</span>
+        <span data-i18n="mission.s1">QA pre mňa nie je o automatizácii a nástrojoch. Tie sa menia.</span>
+        <em data-i18n="mission.s2">Je o zodpovednosti voči používateľovi a rešpekte k práci tímu.</em>
+        <span data-i18n="mission.s3">Som tu na to, aby som zložité veci robil spoľahlivými.</span>
       </p>
 
       <div class="mission-sig">
@@ -3861,9 +3861,9 @@ const dict = {
   sk: {
     "nav.services":"Služby","nav.showcase":"Framework","nav.about":"O mne","nav.mission":"Manifesto","nav.process":"Proces","nav.contact":"Kontakt",
     "mission.kicker":"Manifesto",
-    "mission.s1":"Veril som, že QA je o hľadaní bugov.",
-    "mission.s2":"Nie je. Je to o tom, postaviť veci tak,",
-    "mission.s3":"aby vývojári v piatok večer mohli zatvoriť laptop bez obáv.",
+    "mission.s1":"QA pre mňa nie je o automatizácii a nástrojoch. Tie sa menia.",
+    "mission.s2":"Je o zodpovednosti voči používateľovi a rešpekte k práci tímu.",
+    "mission.s3":"Som tu na to, aby som zložité veci robil spoľahlivými.",
     "mission.sig":"Peter · Qavant",
     "mission.p1.t":"Detail je profesia",
     "mission.p1.d":"Každý prehliadnutý bug je niekoho zlý deň. Beriem to osobne.",
@@ -3933,9 +3933,9 @@ const dict = {
   en: {
     "nav.services":"Services","nav.showcase":"Framework","nav.about":"About","nav.mission":"Manifesto","nav.process":"Process","nav.contact":"Contact",
     "mission.kicker":"Manifesto",
-    "mission.s1":"I used to think QA was about finding bugs.",
-    "mission.s2":"It's not. It's about building things in a way",
-    "mission.s3":"that lets developers close their laptop on Friday evening without worry.",
+    "mission.s1":"For me, QA is not about automation and tools. Those change.",
+    "mission.s2":"It's about responsibility to the user and respect for the team's work.",
+    "mission.s3":"I am here to make complex things reliable.",
     "mission.sig":"Peter · Qavant",
     "mission.p1.t":"Detail is the craft",
     "mission.p1.d":"Every missed bug is someone's bad day. I take it personally.",
@@ -4005,9 +4005,9 @@ const dict = {
   de: {
     "nav.services":"Leistungen","nav.showcase":"Framework","nav.about":"Über mich","nav.mission":"Manifest","nav.process":"Prozess","nav.contact":"Kontakt",
     "mission.kicker":"Manifest",
-    "mission.s1":"Ich dachte einst, QA gehe um das Finden von Bugs.",
-    "mission.s2":"Tut es nicht. Es geht darum, Dinge so zu bauen,",
-    "mission.s3":"dass Entwickler am Freitagabend den Laptop sorglos zuklappen können.",
+    "mission.s1":"QA bedeutet für mich nicht Automatisierung und Tools. Diese ändern sich.",
+    "mission.s2":"Es geht um Verantwortung gegenüber dem Nutzer und Respekt vor der Arbeit des Teams.",
+    "mission.s3":"Ich bin hier, um komplexe Dinge zuverlässig zu machen.",
     "mission.sig":"Peter · Qavant",
     "mission.p1.t":"Detail ist Handwerk",
     "mission.p1.d":"Jeder übersehene Bug ist jemandes schlechter Tag. Ich nehme das persönlich.",
@@ -4030,7 +4030,7 @@ const dict = {
     "midcta2.eyebrow":"BEREIT ZU STARTEN?","midcta2.title":"Sie wissen, was ich tue. Sie wissen, wie ich arbeite.","midcta2.desc":"Der letzte Schritt ist einfach — schreiben Sie mir ein paar Zeilen über Ihr Projekt.","midcta2.btn":"Lass uns reden",
     "hero.eyebrow":"QA Engineering · Bratislava · Verfügbar",
     "hero.t1":"Stressfreier","hero.t2":"Release.","hero.t3":"",
-    "hero.t4":"QA","hero.t5":"hält dir den Rücken frei.",
+    "hero.t4":"QA","hero.t5":"deckt den Rücken.",
     "hero.sub":"Ich bin Peter — freelance QA Automation Engineer mit drei Jahren Erfahrung in slowakischen Banken. Ich baue Test-Frameworks, die den Freitagabend überstehen, und finde die Details, die Ihre Entwickler beim Code-Review übersehen haben.",
     "hero.cta1":"Projekt starten","hero.cta2":"Leistungen ansehen",
     "services.kicker":"Leistungen","services.t1":"Drei Wege,","services.t2":"wie ich helfe.",
