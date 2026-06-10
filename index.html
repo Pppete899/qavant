@@ -620,13 +620,17 @@
     border:1px solid var(--line-2);border-radius:10px;
     background:rgba(11,15,26,.55);
     font-family:'JetBrains Mono',monospace;
-    text-decoration:none;cursor:default;
+    text-decoration:none;
+    transition:border-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease);
   }
+  .cert-badge:hover{border-color:#3B82F6;transform:translateY(-2px);box-shadow:0 10px 28px rgba(8,20,40,.45);}
   .cert-badge .seal{
-    width:30px;height:30px;border-radius:8px;flex:none;
-    background:#1D4ED8;display:flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:9px;flex:none;
+    background:linear-gradient(135deg,#3B82F6,#1D4ED8);
+    box-shadow:0 4px 14px rgba(37,99,235,.35);
+    display:flex;align-items:center;justify-content:center;
   }
-  .cert-badge .seal svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+  .cert-badge .seal svg{width:26px;height:26px;}
   .cert-badge .ct{display:flex;flex-direction:column;line-height:1.25;}
   .cert-badge .ct b{font-size:12.5px;color:var(--ink);font-weight:700;letter-spacing:.02em;}
   .cert-badge .ct span{font-size:10px;color:var(--ink-dim);letter-spacing:.08em;text-transform:uppercase;}
@@ -3234,10 +3238,17 @@
           </a>
         </div>
 
-        <div class="cert-badge reveal" title="ISTQB Certified Tester — Foundation Level">
-          <span class="seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <span class="ct"><b>ISTQB® Certified</b><span>Foundation Level</span></span>
-        </div>
+        <a class="cert-badge reveal" href="https://scr.istqb.org/" target="_blank" rel="noopener"
+           data-cursor="hover" title="Overiteľné v ISTQB® Successful Candidate Register">
+          <span class="seal" aria-hidden="true"><svg viewBox="0 0 32 32">
+            <g stroke="#FFFFFF" stroke-width="1.8" fill="none" opacity=".95">
+              <path d="M7 11 V7 h4"/><path d="M21 7 h4 v4"/>
+              <path d="M25 21 v4 h-4"/><path d="M11 25 h-4 v-4"/>
+            </g>
+            <path d="M11.5 16.5 l3.5 3.5 l6.5 -8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg></span>
+          <span class="ct"><b>ISTQB® Certified Tester</b><span>CTFL v4 · č. 2024-01382</span></span>
+        </a>
 
         <div class="metrics reveal" id="liveMetrics">
           <div class="metric">
