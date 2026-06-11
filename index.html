@@ -1931,7 +1931,7 @@
     font-style:normal;
     font-weight:400;
   }
-  #metricTests{color:var(--green)}
+  #metricTests,#metricApi{color:var(--green)}
   .metric-value .pass{
     color:var(--green);
     font-style:italic;
@@ -3254,24 +3254,24 @@
           <div class="metric">
             <div class="metric-label">
               <span class="live-dot"></span>
-              <span data-i18n="m.tests">Tests</span>
-              <span class="demo-tag" data-i18n="m.demo">DEMO</span>
+              <span data-i18n="m.uitests">UI testy · Playwright</span>
+              <span class="demo-tag demo-ui" data-i18n="m.demo">DEMO</span>
             </div>
             <div class="metric-value" id="metricTests">
-              0<span class="unit">/47</span>
+              0<span class="unit">/145</span>
             </div>
-            <div class="metric-trend"><span class="up">↑</span> <span data-i18n="m.weekly">last 7 days</span></div>
+            <div class="metric-trend"><span id="metricUiMeta">— · </span><span data-i18n="m.runs">runs</span></div>
           </div>
           <div class="metric">
             <div class="metric-label">
               <span class="live-dot"></span>
-              <span data-i18n="m.passrate">Pass rate</span>
-              <span class="demo-tag" data-i18n="m.demo">DEMO</span>
+              <span data-i18n="m.apitests">API testy · Newman</span>
+              <span class="demo-tag demo-api" data-i18n="m.demo">DEMO</span>
             </div>
-            <div class="metric-value" id="metricRate">
-              <span class="pass">0.0<span class="unit">%</span></span>
+            <div class="metric-value" id="metricApi">
+              0<span class="unit">/27</span>
             </div>
-            <div class="metric-trend" id="metricRuns">324 <span data-i18n="m.runs">runs</span></div>
+            <div class="metric-trend"><span id="metricApiMeta">— · </span><span data-i18n="m.runs">runs</span></div>
           </div>
           <div class="metric">
             <div class="metric-label">
@@ -3908,7 +3908,7 @@ const dict = {
     "mission.p3.d":"Radšej pomalšie a stabilne, než rýchlo a flaky. Z dlhého pohľadu sa to vždy oplatí.",
     "mission.p4.t":"Honest work, honest pricing",
     "mission.p4.d":"Fixné ceny, jasný rozsah, žiadne hodinové faktúry s prekvapeniami na konci mesiaca.",
-    "m.tests":"Testy","m.passrate":"Pass rate","m.status":"Stav","m.demo":"DEMO",
+    "m.tests":"Testy","m.uitests":"UI testy · Playwright","m.apitests":"API testy · Newman","m.passrate":"Pass rate","m.status":"Stav","m.demo":"DEMO",
     "m.weekly":"posledných 7 dní","m.runs":"behov","m.available":"Voľný","m.from":"od júna 2026",
     "proc.kicker":"Spolupráca",
     "proc.t1":"Bez prekvapení.","proc.t2":"Predvídateľný proces.",
@@ -3980,7 +3980,7 @@ const dict = {
     "mission.p3.d":"Slower and stable beats fast and flaky. Long-term, it always pays off.",
     "mission.p4.t":"Honest work, honest pricing",
     "mission.p4.d":"Fixed prices, clear scope, no hourly invoices with end-of-month surprises.",
-    "m.tests":"Tests","m.passrate":"Pass rate","m.status":"Status","m.demo":"DEMO",
+    "m.tests":"Tests","m.uitests":"UI tests · Playwright","m.apitests":"API tests · Newman","m.passrate":"Pass rate","m.status":"Status","m.demo":"DEMO",
     "m.weekly":"last 7 days","m.runs":"runs","m.available":"Available","m.from":"from June 2026",
     "proc.kicker":"How we work",
     "proc.t1":"No surprises.","proc.t2":"Predictable process.",
@@ -4052,7 +4052,7 @@ const dict = {
     "mission.p3.d":"Langsam und stabil schlägt schnell und flaky. Langfristig zahlt es sich immer aus.",
     "mission.p4.t":"Ehrliche Arbeit, ehrliche Preise",
     "mission.p4.d":"Festpreise, klarer Umfang, keine Stundenrechnungen mit Überraschungen am Monatsende.",
-    "m.tests":"Tests","m.passrate":"Pass Rate","m.status":"Status","m.demo":"DEMO",
+    "m.tests":"Tests","m.uitests":"UI-Tests · Playwright","m.apitests":"API-Tests · Newman","m.passrate":"Pass Rate","m.status":"Status","m.demo":"DEMO",
     "m.weekly":"letzte 7 Tage","m.runs":"Durchläufe","m.available":"Verfügbar","m.from":"ab Juni 2026",
     "proc.kicker":"Zusammenarbeit",
     "proc.t1":"Keine Überraschungen.","proc.t2":"Vorhersehbarer Prozess.",
@@ -4352,36 +4352,31 @@ if(!calm) document.querySelectorAll('.process-step').forEach(step=>{
 
 // ============== LIVE METRICS WIDGET ==============
 // To use REAL data later, set USE_LIVE_METRICS = true and configure the source.
-// e.g. point fetchMetrics() at GitHub Actions API or a public Allure JSON.
+// Both suites publish status.json from their own CI runs (see fetchStatus below).
 const USE_LIVE_METRICS = true;
 // Published by the qavant-tests GitHub Actions run after each test run.
 const METRICS_URL = 'https://raw.githubusercontent.com/peterolah-qa/qavant-tests/main/status.json';
+const API_METRICS_URL = 'https://raw.githubusercontent.com/peterolah-qa/qavant-api-tests/main/status.json';
 
-const fallbackMetrics = {
-  testsRun: 47,
-  testsTotal: 47,
-  passRate: 99.4,
-  totalRuns: 324,
-  live: false
-};
+const uiFallback  = { testsRun: 145, testsTotal: 145, passRate: 99.3, totalRuns: 3, live: false };
+const apiFallback = { testsRun: 27,  testsTotal: 27,  passRate: 100,  totalRuns: 1, live: false };
 
-async function fetchMetrics(){
-  if(!USE_LIVE_METRICS) return { ...fallbackMetrics };
+async function fetchStatus(url, fallback){
+  if(!USE_LIVE_METRICS) return { ...fallback };
   try{
-    const r = await fetch(METRICS_URL, { cache: 'no-store' });
+    const r = await fetch(url, { cache: 'no-store' });
     if(!r.ok) throw new Error('HTTP ' + r.status);
     const d = await r.json();
     return {
-      testsRun:   Number.isFinite(d.passed)   ? d.passed   : fallbackMetrics.testsRun,
-      testsTotal: Number.isFinite(d.total)    ? d.total    : fallbackMetrics.testsTotal,
-      passRate:   Number.isFinite(d.passRate) ? d.passRate : fallbackMetrics.passRate,
-      totalRuns:  Number.isFinite(d.runs)     ? d.runs     : fallbackMetrics.totalRuns,
-      lastRun:    d.lastRun || null,
+      testsRun:   Number.isFinite(d.passed)   ? d.passed   : fallback.testsRun,
+      testsTotal: Number.isFinite(d.total)    ? d.total    : fallback.testsTotal,
+      passRate:   Number.isFinite(d.passRate) ? d.passRate : fallback.passRate,
+      totalRuns:  Number.isFinite(d.runs)     ? d.runs     : fallback.totalRuns,
       live: true
     };
   }catch(e){
-    // graceful fallback — the widget still works; DEMO stays until real data exists
-    return { ...fallbackMetrics };
+    // graceful fallback — the widget still works; DEMO stays for this source
+    return { ...fallback };
   }
 }
 
@@ -4403,24 +4398,27 @@ const metricsIO = new IntersectionObserver(async entries=>{
   for(const e of entries){
     if(e.isIntersecting){
       metricsIO.unobserve(e.target);
-      const data = await fetchMetrics();
+      // both suites publish the same status.json contract from their own CI
+      const [ui, api] = await Promise.all([
+        fetchStatus(METRICS_URL, uiFallback),
+        fetchStatus(API_METRICS_URL, apiFallback),
+      ]);
 
       animateMetric(v=>{
         document.getElementById('metricTests').innerHTML =
-          `${Math.round(v)}<span class="unit">/${data.testsTotal}</span>`;
-      }, data.testsRun);
-
+          `${Math.round(v)}<span class="unit">/${ui.testsTotal}</span>`;
+      }, ui.testsRun);
       animateMetric(v=>{
-        document.getElementById('metricRate').innerHTML =
-          `<span class="pass">${v}<span class="unit">%</span></span>`;
-      }, data.passRate, {decimals:1});
+        document.getElementById('metricApi').innerHTML =
+          `${Math.round(v)}<span class="unit">/${api.testsTotal}</span>`;
+      }, api.testsRun);
 
-      // real data loaded -> drop the DEMO tags and show the real run count
-      if(data.live){
-        document.querySelectorAll('.demo-tag').forEach(t=> t.style.display='none');
-        const runsEl = document.getElementById('metricRuns');
-        if(runsEl && runsEl.firstChild) runsEl.firstChild.textContent = data.totalRuns + ' ';
-      }
+      document.getElementById('metricUiMeta').textContent  = `${ui.passRate}% · ${ui.totalRuns} `;
+      document.getElementById('metricApiMeta').textContent = `${api.passRate}% · ${api.totalRuns} `;
+
+      // drop DEMO per source — only data that really came from CI loses the tag
+      if(ui.live)  document.querySelectorAll('.demo-tag.demo-ui').forEach(t=> t.style.display='none');
+      if(api.live) document.querySelectorAll('.demo-tag.demo-api').forEach(t=> t.style.display='none');
     }
   }
 }, { threshold: 0.3 });
