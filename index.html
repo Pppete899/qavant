@@ -1188,7 +1188,9 @@
   }
 
   /* ============== ARCHITECTURE VIEW (in IDE) ============== */
-  .view-toggle{
+  .ide-repo{margin-left:auto;margin-right:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim);text-decoration:none;border:1px solid var(--line-2);border-radius:7px;padding:4px 9px;transition:color .2s,border-color .2s;}
+  .ide-repo:hover{color:#fff;border-color:#3B82F6;}
+  .view-toggle{margin-left:0;
     display:flex;
     gap:4px;
     background:rgba(0,0,0,0.3);
@@ -2556,7 +2558,9 @@
       border-top:1px solid var(--line);
       letter-spacing:0.04em;
     }
-    .view-toggle{
+    .ide-repo{margin-left:auto;margin-right:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim);text-decoration:none;border:1px solid var(--line-2);border-radius:7px;padding:4px 9px;transition:color .2s,border-color .2s;}
+  .ide-repo:hover{color:#fff;border-color:#3B82F6;}
+  .view-toggle{margin-left:0;
       margin-left:auto;
       padding:2px;
       gap:2px;
@@ -3422,7 +3426,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h16M4 15h16M10 3l-2 18M16 3l-2 18"/></svg>
         </span>
         REST API
-        <span class="fw-meta">· REST Assured</span>
+        <span class="fw-meta">· Newman</span>
       </button>
       <button class="fw-tab" data-fw="playwright" data-cursor="hover">
         <span class="fw-icon">
@@ -3436,7 +3440,8 @@
     <div class="ide reveal" id="ide">
       <div class="ide-bar">
         <span class="d r"></span><span class="d y"></span><span class="d g"></span>
-        <span class="title"><b id="ideProjectName">qavant-selenium-demo</b> — IntelliJ IDEA</span>
+        <span class="title"><b id="ideProjectName">qavant-selenium</b> — IntelliJ IDEA</span>
+        <a class="ide-repo" id="ideRepoLink" href="https://github.com/peterolah-qa/qavant-selenium" target="_blank" rel="noopener" data-cursor="hover">GitHub ↗</a>
         <div class="view-toggle" role="group" aria-label="View mode">
           <button class="active" data-view="code" data-cursor="hover">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -3458,7 +3463,7 @@
           <div class="ide-tabs" id="ideTabs">
             <div class="ide-tab active" id="activeTab">
               <span class="dot"></span>
-              <span id="activeTabName">LoginPage.java</span>
+              <span id="activeTabName">BasePage.java</span>
             </div>
           </div>
 
@@ -3507,14 +3512,14 @@
               <g class="arch-node">
                 <rect x="200" y="20" width="300" height="64" rx="12" fill="url(#grad-test)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
                 <text x="350" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7DB3FF" letter-spacing="2">TESTS LAYER</text>
-                <text x="350" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">@Test methods · TestNG · Allure</text>
+                <text x="350" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">@Test methods · TestNG · Maven</text>
               </g>
 
               <!-- LAYER 2: PAGES -->
               <g class="arch-node">
                 <rect x="60" y="140" width="260" height="64" rx="12" fill="url(#grad-page)" stroke="#7DB3FF" stroke-opacity="0.4" stroke-width="1"/>
                 <text x="190" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7DB3FF" letter-spacing="2">PAGE OBJECTS</text>
-                <text x="190" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">LoginPage · DashboardPage</text>
+                <text x="190" y="188" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">BasePage · HomePage</text>
               </g>
 
               <g class="arch-node">
@@ -3527,7 +3532,7 @@
               <g class="arch-node">
                 <rect x="100" y="260" width="500" height="64" rx="12" fill="url(#grad-core)" stroke="#1D4ED8" stroke-opacity="0.4" stroke-width="1"/>
                 <text x="350" y="288" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#1D4ED8" letter-spacing="2">CORE / FRAMEWORK</text>
-                <text x="350" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">DriverFactory · BasePage · Wait helpers · Logger</text>
+                <text x="350" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#F4F8FD">DriverFactory · BaseTest · explicit waits only</text>
               </g>
 
               <!-- LAYER 4: INFRA -->
@@ -4448,424 +4453,434 @@ if(!isTouchDevice && !calm){
 // ============== SHOWCASE IDE — 3 FRAMEWORKS ==============
 const frameworks = {
   selenium: {
-    project: 'qavant-selenium-demo',
-    stack: 'Java 17 · Selenium 4.x · TestNG · Maven',
+    project: 'qavant-selenium',
+    repo: 'https://github.com/peterolah-qa/qavant-selenium',
+    stack: 'Java 17 · Selenium 4 · TestNG · Maven',
     tree: [
-      {label:'Project', folder:'src/main/java', files:[
-        {key:'sel-base', name:'BasePage.java'},
-        {key:'sel-login', name:'LoginPage.java'},
+      {label:'qavant-selenium', folder:'core', files:[
         {key:'sel-driver', name:'DriverFactory.java'},
       ]},
-      {label:null, folder:'src/test/java', files:[
-        {key:'sel-test', name:'LoginTest.java'},
+      {label:null, folder:'pages', files:[
+        {key:'sel-base', name:'BasePage.java'},
+        {key:'sel-home', name:'HomePage.java'},
       ]},
-      {label:null, folder:'resources', files:[
-        {key:'sel-config', name:'config.properties'},
+      {label:null, folder:'tests', files:[
+        {key:'sel-smoke', name:'SmokeTests.java'},
+        {key:'sel-cert', name:'CertBadgeTests.java'},
       ]},
     ],
+    defaultFile: 'sel-base',
     files: {
-      'sel-base': {
-        name:'BasePage.java', locked:false,
-        code:[
-          ['com','// BasePage.java — parent class for all page objects'],
-          ['com','// Centralizes wait logic and PageFactory init'],
-          [],
-          ['kw','package ','pkg','com.qavant.framework.pages',';'],
-          [],
-          ['kw','import ','pkg','org.openqa.selenium.WebDriver',';'],
-          ['kw','import ','pkg','org.openqa.selenium.support.PageFactory',';'],
-          ['kw','import ','pkg','org.openqa.selenium.support.ui.WebDriverWait',';'],
-          [],
-          ['kw','public abstract class ','typ','BasePage',' {'],
-          ['  ','kw','protected final ','typ','WebDriver',' driver;'],
-          ['  ','kw','protected final ','typ','WebDriverWait',' wait;'],
-          [],
-          ['  ','kw','public ','fn','BasePage','(','typ','WebDriver',' driver) {'],
-          ['    ','kw','this','.driver = driver;'],
-          ['    ','kw','this','.wait = ','kw','new ','typ','WebDriverWait','(driver, ','typ','Duration','.','fn','ofSeconds','(','num','15','));'],
-          ['    ','typ','PageFactory','.','fn','initElements','(driver, ','kw','this',');'],
-          ['  }'],
-          [],
-          ['  ','com','// Subclasses signal when page is ready'],
-          ['  ','kw','protected abstract void ','fn','waitForPageLoad','();'],
-          ['}']
-        ]
-      },
-      'sel-login': {
-        name:'LoginPage.java', locked:false,
-        code:[
-          ['com','// LoginPage.java — example page object'],
-          ['com','// Element locators stay here, never leak into tests'],
-          [],
-          ['kw','package ','pkg','com.qavant.framework.pages',';'],
-          [],
-          ['kw','import ','pkg','org.openqa.selenium.WebElement',';'],
-          ['kw','import ','pkg','org.openqa.selenium.support.FindBy',';'],
-          [],
-          ['kw','public class ','typ','LoginPage',' ','kw','extends ','typ','BasePage',' {'],
-          [],
-          ['  ','ann','@FindBy','(','fn','id ','= ','str','"username"',')'],
-          ['  ','kw','private ','typ','WebElement',' usernameInput;'],
-          [],
-          ['  ','ann','@FindBy','(','fn','id ','= ','str','"password"',')'],
-          ['  ','kw','private ','typ','WebElement',' passwordInput;'],
-          [],
-          ['  ','ann','@FindBy','(','fn','css ','= ','str','"button[type=submit]"',')'],
-          ['  ','kw','private ','typ','WebElement',' submitButton;'],
-          [],
-          ['  ','com','// Fluent API: actions return next page object'],
-          ['  ','kw','public ','typ','DashboardPage',' ','fn','loginAs','(','typ','String',' user, ','typ','String',' pass) {'],
-          ['    wait.','fn','until','(','typ','ExpectedConditions','.','fn','visibilityOf','(usernameInput)).','fn','sendKeys','(user);'],
-          ['    passwordInput.','fn','sendKeys','(pass);'],
-          ['    submitButton.','fn','click','();'],
-          ['    ','kw','return new ','typ','DashboardPage','(driver);'],
-          ['  }'],
-          ['}']
-        ]
-      },
       'sel-driver': {
-        name:'DriverFactory.java', locked:true,
+        name:"DriverFactory.java", locked:false,
         code:[
-          ['com','// DriverFactory.java — thread-safe driver provisioning'],
-          ['com','// Required for parallel test execution'],
+          ["com", "/**"],
+          ["com", " * Creates configured WebDriver instances."],
+          ["com", " *"],
+          ["com", " * Selenium 4.6+ ships Selenium Manager, which resolves the matching"],
+          ["com", " * chromedriver automatically — no WebDriverManager dependency needed."],
+          ["com", " * Headless is the default because the suite is CI-first; run with"],
+          ["com", " * -Dheadless=false to watch the browser locally."],
+          ["com", " */"],
+          ["kw", "public", " ", "kw", "final", " ", "kw", "class", " ", "typ", "DriverFactory", " {"],
           [],
-          ['kw','package ','pkg','com.qavant.framework.core',';'],
+          ["    ", "kw", "private", " ", "typ", "DriverFactory", "() { }"],
           [],
-          ['kw','public final class ','typ','DriverFactory',' {'],
-          [],
-          ['  ','kw','private static final ','typ','ThreadLocal','<','typ','WebDriver','> drivers'],
-          ['      = ','kw','new ','typ','ThreadLocal','<>();'],
-          [],
-          ['  ','kw','public static ','typ','WebDriver',' ','fn','get','() {'],
-          ['    ','kw','if ','(drivers.','fn','get','() == ','kw','null',') {'],
-          ['      ','fn','init','(','typ','Config','.','fn','browser','());'],
-          ['    }'],
-          ['    ','kw','return ','drivers.','fn','get','();'],
-          ['  }'],
-          [],
-          ['  ','com','// ... browser selection, capabilities, grid logic ...'],
-          ['  ','com','// ... screenshot hooks, video recording ...'],
-          ['  ','com','// ... cloud provider integrations ...'],
-          ['  ','com','// (full implementation in private repo)'],
-          ['}']
+          ["    ", "kw", "public", " ", "kw", "static", " ", "typ", "WebDriver", " ", "fn", "createChrome", "() {"],
+          ["        ", "typ", "ChromeOptions", " options = ", "kw", "new", " ", "typ", "ChromeOptions", "();"],
+          ["        ", "kw", "if", " (!", "str", "\"false\"", ".", "fn", "equalsIgnoreCase", "(", "typ", "System", ".", "fn", "getProperty", "(", "str", "\"headless\"", ", ", "str", "\"true\"", "))) {"],
+          ["            options.", "fn", "addArguments", "(", "str", "\"--headless=new\"", ");"],
+          ["        }"],
+          ["        options.", "fn", "addArguments", "("],
+          ["                ", "str", "\"--window-size=1440,900\"", ","],
+          ["                ", "str", "\"--disable-gpu\"", ","],
+          ["                ", "str", "\"--no-sandbox\"", ","],
+          ["                ", "str", "\"--disable-dev-shm-usage\""],
+          ["        );"],
+          ["        ", "typ", "WebDriver", " driver = ", "kw", "new", " ", "typ", "ChromeDriver", "(options);"],
+          ["com", "        // implicit waits stay at ZERO — all waiting is explicit (see BasePage)"],
+          ["        driver.", "fn", "manage", "().", "fn", "timeouts", "().", "fn", "pageLoadTimeout", "(", "typ", "Duration", ".", "fn", "ofSeconds", "(", "num", "30", "));"],
+          ["        ", "kw", "return", " driver;"],
+          ["    }"],
+          ["}"]
         ]
       },
-      'sel-test': {
-        name:'LoginTest.java', locked:false,
+      'sel-base': {
+        name:"BasePage.java", locked:false,
         code:[
-          ['com','// LoginTest.java — example test'],
-          ['com','// Tests read like documentation, not implementation'],
           [],
-          ['kw','package ','pkg','com.qavant.tests',';'],
+          ["com", "/**"],
+          ["com", " * Explicit waits only — no Thread.sleep() anywhere in this codebase."],
+          ["com", " * Every action waits for exactly the condition it needs."],
+          ["com", " */"],
+          ["kw", "public", " ", "kw", "abstract", " ", "kw", "class", " ", "typ", "BasePage", " {"],
           [],
-          ['kw','import ','pkg','org.testng.annotations.Test',';'],
-          ['kw','import ','pkg','io.qameta.allure.Epic',';'],
+          ["    ", "kw", "protected", " ", "kw", "final", " ", "typ", "WebDriver", " driver;"],
+          ["    ", "kw", "protected", " ", "kw", "final", " ", "typ", "WebDriverWait", " wait;"],
           [],
-          ['ann','@Epic','(','str','"Authentication"',')'],
-          ['kw','public class ','typ','LoginTest',' ','kw','extends ','typ','BaseTest',' {'],
+          ["    ", "kw", "protected", " ", "typ", "BasePage", "(", "typ", "WebDriver", " driver) {"],
+          ["        ", "kw", "this", ".driver = driver;"],
+          ["        ", "kw", "this", ".wait = ", "kw", "new", " ", "typ", "WebDriverWait", "(driver, ", "typ", "Duration", ".", "fn", "ofSeconds", "(", "num", "10", "));"],
+          ["    }"],
           [],
-          ['  ','ann','@Test','(','fn','description ','= ','str','"Valid user logs in"',')'],
-          ['  ','kw','public void ','fn','validUserLogsIn','() {'],
-          ['    ','typ','DashboardPage',' dashboard = ','kw','new ','typ','LoginPage','(driver)'],
-          ['        .','fn','open','()'],
-          ['        .','fn','loginAs','(','fn','TestUsers','.','fn','standard','());'],
+          ["    ", "kw", "protected", " ", "typ", "WebElement", " ", "fn", "visible", "(", "typ", "By", " locator) {"],
+          ["        ", "kw", "return", " wait.", "fn", "until", "(", "typ", "ExpectedConditions", ".", "fn", "visibilityOfElementLocated", "(locator));"],
+          ["    }"],
           [],
-          ['    dashboard.','fn','assertWelcomeBannerVisible','();'],
-          ['  }'],
-          ['}']
+          ["    ", "kw", "protected", " ", "typ", "WebElement", " ", "fn", "present", "(", "typ", "By", " locator) {"],
+          ["        ", "kw", "return", " wait.", "fn", "until", "(", "typ", "ExpectedConditions", ".", "fn", "presenceOfElementLocated", "(locator));"],
+          ["    }"],
+          [],
+          ["    ", "kw", "protected", " ", "typ", "WebElement", " ", "fn", "clickable", "(", "typ", "By", " locator) {"],
+          ["        ", "kw", "return", " wait.", "fn", "until", "(", "typ", "ExpectedConditions", ".", "fn", "elementToBeClickable", "(locator));"],
+          ["    }"],
+          [],
+          ["com", "    /**"],
+          ["com", "     * Scrolls an element into the viewport the way a user would."],
+          ["com", "     * The site reveals below-the-fold content via IntersectionObserver"],
+          ["com", "     * (elements start at opacity 0), so anything outside the initial"]
         ]
       },
-      'sel-config': {
-        name:'config.properties', locked:false,
+      'sel-home': {
+        name:"HomePage.java", locked:false,
         code:[
-          ['com','# Environment-specific config — never commit secrets'],
-          ['com','# Resolved at runtime via -Denv=staging'],
+          ["com", " * Tests never look up elements directly — locators live here, once."],
+          ["com", " */"],
+          ["kw", "public", " ", "kw", "class", " ", "typ", "HomePage", " ", "kw", "extends", " ", "typ", "BasePage", " {"],
           [],
-          ['com','# === Browser ==='],
-          ['fn','browser','=chrome'],
-          ['fn','headless','=true'],
-          ['fn','window.size','=1920x1080'],
+          ["com", "    // --- locators ---"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "HERO_TITLE", "   = ", "typ", "By", ".", "fn", "id", "(", "str", "\"heroTitle\"", ");"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "NAV_LINKS", "    = ", "typ", "By", ".", "fn", "cssSelector", "(", "str", "\".nav a[href^='#']\"", ");"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "METRIC_CARDS", " = ", "typ", "By", ".", "fn", "cssSelector", "(", "str", "\"#liveMetrics .metric\"", ");"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "CERT_BADGE", "   = ", "typ", "By", ".", "fn", "cssSelector", "(", "str", "\"a.cert-badge\"", ");"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "CONTACT_FORM", " = ", "typ", "By", ".", "fn", "cssSelector", "(", "str", "\"form[name='contact']\"", ");"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "HONEYPOT", "     = ", "typ", "By", ".", "fn", "cssSelector", "(", "str", "\"input[name='bot-field']\"", ");"],
+          ["    ", "kw", "private", " ", "kw", "static", " ", "kw", "final", " ", "typ", "By", " ", "typ", "BOOT_OVERLAY", " = ", "typ", "By", ".", "fn", "id", "(", "str", "\"boot\"", ");"],
           [],
-          ['com','# === Timeouts (seconds) ==='],
-          ['fn','wait.implicit','=','num','0'],
-          ['fn','wait.explicit','=','num','15'],
+          ["    ", "kw", "public", " ", "typ", "HomePage", "(", "typ", "WebDriver", " driver) {"],
+          ["        ", "fn", "super", "(driver);"],
+          ["    }"],
           [],
-          ['com','# === Parallelism ==='],
-          ['fn','thread.count','=','num','4'],
-          ['fn','retry.failed','=','num','1'],
+          ["    ", "kw", "public", " ", "typ", "HomePage", " ", "fn", "open", "(", "typ", "String", " baseUrl) {"],
+          ["        driver.", "fn", "get", "(baseUrl + ", "str", "\"/\"", ");"],
+          ["com", "        // the boot overlay intercepts clicks while fading; wait until it is gone"],
+          ["        wait.", "fn", "until", "(", "typ", "ExpectedConditions", ".", "fn", "or", "("],
+          ["                ", "typ", "ExpectedConditions", ".", "fn", "invisibilityOfElementLocated", "(", "typ", "BOOT_OVERLAY", "),"],
+          ["                ", "typ", "ExpectedConditions", ".", "fn", "attributeContains", "(", "typ", "BOOT_OVERLAY", ", ", "str", "\"class\"", ", ", "str", "\"gone\"", ")"],
+          ["        ));"],
           [],
-          ['com','# === Reporting ==='],
-          ['fn','allure.results','=target/allure-results'],
-          ['fn','screenshot.on.failure','=true']
+          ["com", "    // … contact form, cert badge, metrics accessors …"]
+        ]
+      },
+      'sel-smoke': {
+        name:"SmokeTests.java", locked:false,
+        code:[
+          ["kw", "public", " ", "kw", "class", " ", "typ", "SmokeTests", " ", "kw", "extends", " ", "typ", "BaseTest", " {"],
+          [],
+          ["    ", "ann", "@Test", "(description = ", "str", "\"home page loads with the right title\"", ")"],
+          ["    ", "kw", "public", " ", "kw", "void", " ", "fn", "homePageLoads", "() {"],
+          ["        ", "kw", "new", " ", "typ", "HomePage", "(driver).", "fn", "open", "(", "typ", "BASE_URL", ");"],
+          ["        ", "typ", "Assert", ".", "fn", "assertTrue", "(driver.", "fn", "getTitle", "().", "fn", "contains", "(", "str", "\"Qavant\"", "),"],
+          ["                ", "str", "\"title should contain 'Qavant' but was: \"", " + driver.", "fn", "getTitle", "());"],
+          ["    }"],
+          [],
+          ["    ", "ann", "@Test", "(description = ", "str", "\"hero headline is visible\"", ")"],
+          ["    ", "kw", "public", " ", "kw", "void", " ", "fn", "heroIsVisible", "() {"],
+          ["        ", "typ", "HomePage", " home = ", "kw", "new", " ", "typ", "HomePage", "(driver).", "fn", "open", "(", "typ", "BASE_URL", ");"],
+          ["        ", "typ", "Assert", ".", "fn", "assertTrue", "(home.", "fn", "heroIsVisible", "(), ", "str", "\"hero headline should be visible\"", ");"],
+          ["    }"],
+          [],
+          ["    ", "ann", "@Test", "(description = ", "str", "\"primary navigation exposes in-page anchors\"", ")"],
+          ["    ", "kw", "public", " ", "kw", "void", " ", "fn", "navHasAnchors", "() {"],
+          ["        ", "typ", "HomePage", " home = ", "kw", "new", " ", "typ", "HomePage", "(driver).", "fn", "open", "(", "typ", "BASE_URL", ");"],
+          ["        ", "typ", "Assert", ".", "fn", "assertTrue", "(home.", "fn", "navAnchors", "().", "fn", "size", "() >= ", "num", "5", ","],
+          ["                ", "str", "\"expected at least 5 in-page nav anchors\"", ");"],
+          ["    }"],
+          [],
+          ["    ", "ann", "@Test", "(description = ", "str", "\"live metrics widget renders all three cards\"", ")"],
+          ["    ", "kw", "public", " ", "kw", "void", " ", "fn", "metricsWidgetHasThreeCards", "() {"],
+          ["        ", "typ", "HomePage", " home = ", "kw", "new", " ", "typ", "HomePage", "(driver).", "fn", "open", "(", "typ", "BASE_URL", ");"]
+        ]
+      },
+      'sel-cert': {
+        name:"CertBadgeTests.java", locked:false,
+        code:[
+          [],
+          ["com", "    /**"],
+          ["com", "     * We assert the link CONTRACT (where it points and how it opens), not the"],
+          ["com", "     * destination itself — a third party's uptime is not this suite's concern."],
+          ["com", "     */"],
+          ["    ", "ann", "@Test", "(description = ", "str", "\"ISTQB badge is a verifiable link to the official register\"", ")"],
+          ["    ", "kw", "public", " ", "kw", "void", " ", "fn", "badgeLinksToRegister", "() {"],
+          ["        ", "typ", "HomePage", " home = ", "kw", "new", " ", "typ", "HomePage", "(driver).", "fn", "open", "(", "typ", "BASE_URL", ");"],
+          ["        ", "typ", "WebElement", " badge = home.", "fn", "certBadge", "();"],
+          [],
+          ["        ", "typ", "Assert", ".", "fn", "assertTrue", "(badge.", "fn", "getText", "().", "fn", "contains", "(", "str", "\"ISTQB\"", "), ", "str", "\"badge should mention ISTQB\"", ");"],
+          ["        ", "typ", "Assert", ".", "fn", "assertTrue", "(badge.", "fn", "getAttribute", "(", "str", "\"href\"", ").", "fn", "startsWith", "(", "str", "\"https://scr.istqb.org\"", "),"],
+          ["                ", "str", "\"badge must point at the official Successful Candidate Register\"", ");"],
+          ["        ", "typ", "Assert", ".", "fn", "assertEquals", "(badge.", "fn", "getAttribute", "(", "str", "\"target\"", "), ", "str", "\"_blank\"", ");"],
+          ["        ", "typ", "Assert", ".", "fn", "assertTrue", "(badge.", "fn", "getAttribute", "(", "str", "\"rel\"", ").", "fn", "contains", "(", "str", "\"noopener\"", "),"],
+          ["                ", "str", "\"external link must carry rel=noopener\"", ");"],
+          ["    }"]
         ]
       }
     }
   },
 
   api: {
-    project: 'qavant-api-demo',
-    stack: 'Java 17 · REST Assured · TestNG · Allure',
+    project: 'qavant-api-tests',
+    repo: 'https://github.com/peterolah-qa/qavant-api-tests',
+    stack: 'Postman · Newman · GitHub Actions',
     tree: [
-      {label:'Project', folder:'src/main/java', files:[
-        {key:'api-client', name:'ApiClient.java'},
-        {key:'api-spec', name:'RequestSpecs.java'},
-        {key:'api-models', name:'PaymentRequest.java'},
+      {label:'qavant-api-tests', folder:'collection', files:[
+        {key:'api-auth', name:'POST /auth — tests.js'},
+        {key:'api-schema', name:'GET /booking — tests.js'},
       ]},
-      {label:null, folder:'src/test/java', files:[
-        {key:'api-test', name:'PaymentApiTest.java'},
+      {label:null, folder:'scripts', files:[
+        {key:'api-status', name:'report-status.mjs'},
       ]},
-      {label:null, folder:'resources', files:[
-        {key:'api-env', name:'env.properties'},
+      {label:null, folder:'.github/workflows', files:[
+        {key:'api-ci', name:'api-tests.yml'},
       ]},
     ],
+    defaultFile: 'api-auth',
     files: {
-      'api-client': {
-        name:'ApiClient.java', locked:false,
+      'api-auth': {
+        name:"POST /auth \u2014 tests.js", locked:false,
         code:[
-          ['com','// ApiClient.java — central HTTP client wrapper'],
-          ['com','// Auth, retries, and logging in one place'],
-          [],
-          ['kw','package ','pkg','com.qavant.api.core',';'],
-          [],
-          ['kw','import static ','pkg','io.restassured.RestAssured.given',';'],
-          [],
-          ['kw','public class ','typ','ApiClient',' {'],
-          [],
-          ['  ','kw','private final ','typ','RequestSpecification',' spec;'],
-          [],
-          ['  ','kw','public ','fn','ApiClient','(','typ','String',' baseUrl, ','typ','String',' token) {'],
-          ['    ','kw','this','.spec = ','fn','given','()'],
-          ['        .','fn','baseUri','(baseUrl)'],
-          ['        .','fn','header','(','str','"Authorization"',', ','str','"Bearer "',' + token)'],
-          ['        .','fn','contentType','(','typ','ContentType','.JSON);'],
-          ['  }'],
-          [],
-          ['  ','kw','public ','typ','Response',' ','fn','post','(','typ','String',' path, ','typ','Object',' body) {'],
-          ['    ','kw','return ','spec.','fn','body','(body).','fn','post','(path);'],
-          ['  }'],
-          ['}']
+          ["pm.", "fn", "test", "(", "str", "'status 200'", ", () => pm.response.to.have.", "fn", "status", "(", "num", "200", "));"],
+          ["kw", "const", " j = pm.response.", "fn", "json", "();"],
+          ["pm.", "fn", "test", "(", "str", "'token returned'", ", () => pm.", "fn", "expect", "(j).to.have.", "fn", "property", "(", "str", "'token'", ").that.is.", "fn", "a", "(", "str", "'string'", ").with.length.", "fn", "above", "(", "num", "0", "));"],
+          ["pm.collectionVariables.", "fn", "set", "(", "str", "'token'", ", j.token);"]
         ]
       },
-      'api-spec': {
-        name:'RequestSpecs.java', locked:true,
+      'api-schema': {
+        name:"GET /booking \u2014 tests.js", locked:false,
         code:[
-          ['com','// RequestSpecs.java — reusable specs for different test contexts'],
-          [],
-          ['kw','package ','pkg','com.qavant.api.specs',';'],
-          [],
-          ['kw','public final class ','typ','RequestSpecs',' {'],
-          [],
-          ['  ','kw','public static ','typ','RequestSpecification',' ','fn','authenticated','() {'],
-          ['    ','kw','return new ','typ','RequestSpecBuilder','()'],
-          ['        .','fn','setBaseUri','(','typ','Env','.','fn','baseUrl','())'],
-          ['        .','fn','setContentType','(','typ','ContentType','.JSON)'],
-          ['        .','fn','addFilter','(','kw','new ','typ','AllureRestAssured','())'],
-          ['        .','fn','build','();'],
-          ['  }'],
-          [],
-          ['  ','com','// ... oauth2 flow handling ...'],
-          ['  ','com','// ... mTLS for fintech APIs ...'],
-          ['  ','com','// ... request signing & idempotency keys ...'],
-          ['  ','com','// (full implementation in private repo)'],
-          ['}']
+          ["com", "// NOTE: restful-booker returns 200 on create; 201 would be conventional (documented quirk)."],
+          ["pm.", "fn", "test", "(", "str", "'create returns 200'", ", () => pm.response.to.have.", "fn", "status", "(", "num", "200", "));"],
+          ["pm.", "fn", "test", "(", "str", "'response matches booking schema'", ", () => pm.response.to.have.", "fn", "jsonSchema", "({", "str", "\"type\"", ": ", "str", "\"object\"", ", ", "str", "\"required\"", ": [", "str", "\"bookingid\"", ", ", "str", "\"booking\"", "], ", "str", "\"properties\"", ": {", "str", "\"bookingid\"", ": {", "str", "\"type\"", ": ", "str", "\"number\"", "}, ", "str", "\"booking\"", ": {", "str", "\"type\"", ": ", "str", "\"object\"", ", ", "str", "\"required\"", ": [", "str", "\"firstname\"", ", ", "str", "\"lastname\"", ", ", "str", "\"totalprice\"", ", ", "str", "\"depositpaid\"", ", ", "str", "\"bookingdates\"", "], ", "str", "\"properties\"", ": {", "str", "\"firstname\"", ": {", "str", "\"type\"", ": ", "str", "\"string\"", "}, ", "str", "\"lastname\"", ": {", "str", "\"type\"", ": ", "str", "\"string\"", "}, ", "str", "\"totalprice\"", ": {", "str", "\"type\"", ": ", "str", "\"number\"", "}, ", "str", "\"depositpaid\"", ": {", "str", "\"type\"", ": ", "str", "\"boolean\"", "}, ", "str", "\"bookingdates\"", ": {", "str", "\"type\"", ": ", "str", "\"object\"", ", ", "str", "\"required\"", ": [", "str", "\"checkin\"", ", ", "str", "\"checkout\"", "], ", "str", "\"properties\"", ": {", "str", "\"checkin\"", ": {", "str", "\"type\"", ": ", "str", "\"string\"", "}, ", "str", "\"checkout\"", ": {", "str", "\"type\"", ": ", "str", "\"string\"", "}}}}}}}));"],
+          ["kw", "const", " j = pm.response.", "fn", "json", "();"],
+          ["pm.collectionVariables.", "fn", "set", "(", "str", "'bookingId'", ", j.bookingid);"],
+          ["pm.collectionVariables.", "fn", "set", "(", "str", "'createdFirstName'", ", j.booking.firstname);"],
+          ["pm.", "fn", "test", "(", "str", "'echoes the price we sent'", ", () => pm.", "fn", "expect", "(j.booking.totalprice).to.", "fn", "eql", "(", "num", "222", "));"]
         ]
       },
-      'api-models': {
-        name:'PaymentRequest.java', locked:false,
+      'api-status': {
+        name:"report-status.mjs", locked:false,
         code:[
-          ['com','// PaymentRequest.java — typed POJO with builder pattern'],
-          ['com','// Avoids brittle Map<String,Object> in tests'],
+          ["com", "// Reads Newman's JSON report and writes a compact status.json that the"],
+          ["com", "// qavant.dev site can fetch to show REAL API-test metrics."],
+          ["com", "// Same contract as qavant-tests: { passed, total, passRate, runs, lastRun }."],
+          ["kw", "import", " { readFileSync, writeFileSync } ", "kw", "from", " ", "str", "'node:fs'", ";"],
           [],
-          ['kw','package ','pkg','com.qavant.api.models',';'],
+          ["kw", "let", " report;"],
+          ["try {"],
+          ["  report = ", "typ", "JSON", ".", "fn", "parse", "(", "fn", "readFileSync", "(", "str", "'newman-report.json'", ", ", "str", "'utf8'", "));"],
+          ["} catch {"],
+          ["  console.", "fn", "error", "(", "str", "'newman-report.json not found — did Newman run with the json reporter?'", ");"],
+          ["  process.", "fn", "exit", "(", "num", "0", "); ", "com", "// never fail the build over a missing report"],
+          ["}"],
           [],
-          ['ann','@Data'],
-          ['ann','@Builder'],
-          ['ann','@JsonInclude','(','typ','Include','.NON_NULL)'],
-          ['kw','public class ','typ','PaymentRequest',' {'],
-          ['  ','kw','private ','typ','BigDecimal',' amount;'],
-          ['  ','kw','private ','typ','String',' currency;'],
-          ['  ','kw','private ','typ','String',' recipientIban;'],
-          ['  ','kw','private ','typ','String',' reference;'],
-          ['  ','kw','private ','typ','LocalDate',' executionDate;'],
-          ['}']
+          ["com", "// Newman counts assertions: total and failed."],
+          ["kw", "const", " stats = report?.run?.stats?.assertions ?? { total: ", "num", "0", ", failed: ", "num", "0", " };"],
+          ["kw", "const", " total = stats.total ?? ", "num", "0", ";"],
+          ["kw", "const", " failed = stats.failed ?? ", "num", "0", ";"],
+          ["kw", "const", " passed = total - failed;"],
+          ["kw", "const", " passRate = total ? ", "typ", "Math", ".", "fn", "round", "((passed / total) * ", "num", "1000", ") / ", "num", "10", " : ", "num", "0", ";"],
+          [],
+          ["com", "// carry forward an incrementing run counter from the previous status.json"],
+          ["kw", "let", " runs = ", "num", "0", ";"],
+          ["try { runs = ", "typ", "JSON", ".", "fn", "parse", "(", "fn", "readFileSync", "(", "str", "'status.json'", ", ", "str", "'utf8'", ")).runs || ", "num", "0", "; } catch {}"]
         ]
       },
-      'api-test': {
-        name:'PaymentApiTest.java', locked:false,
+      'api-ci': {
+        name:"api-tests.yml", locked:false,
         code:[
-          ['com','// PaymentApiTest.java — example API test'],
-          ['com','// Reads like spec, not implementation'],
+          ["ann", "name", ":", " API Tests (Newman)"],
           [],
-          ['kw','package ','pkg','com.qavant.tests',';'],
+          ["com", "# Quality gate + publisher: runs the Postman collection via Newman and writes"],
+          ["com", "# a status.json (assertion count, pass rate, run count) back to main so"],
+          ["com", "# qavant.dev can show REAL API metrics. status.json pushes are path-ignored"],
+          ["com", "# below so they never re-trigger this workflow."],
+          ["ann", "on", ":"],
+          ["  ", "ann", "push", ":"],
+          ["    ", "ann", "branches", ":", " [main]"],
+          ["    ", "ann", "paths-ignore", ":", " [", "str", "'status.json'", "]"],
+          ["  ", "ann", "pull_request", ":"],
+          ["    ", "ann", "branches", ":", " [main]"],
+          ["  ", "ann", "schedule", ":"],
+          ["    - ", "ann", "cron", ":", " ", "str", "'30 6 * * *'", "   # daily, just after the UI suite"],
+          ["  ", "ann", "workflow_dispatch", ":"],
           [],
-          ['ann','@Epic','(','str','"Payments"',')'],
-          ['kw','public class ','typ','PaymentApiTest',' ','kw','extends ','typ','BaseApiTest',' {'],
+          ["ann", "permissions", ":"],
+          ["  ", "ann", "contents", ":", " write   # needed to commit status.json back to the repo"],
           [],
-          ['  ','ann','@Test','(','fn','description ','= ','str','"Valid SEPA payment is accepted"',')'],
-          ['  ','kw','public void ','fn','sepaPaymentAccepted','() {'],
-          ['    ','typ','PaymentRequest',' req = ','typ','PaymentRequest','.','fn','builder','()'],
-          ['        .','fn','amount','(','kw','new ','typ','BigDecimal','(','str','"42.50"','))'],
-          ['        .','fn','currency','(','str','"EUR"',')'],
-          ['        .','fn','recipientIban','(','fn','TestData','.','fn','validIban','())'],
-          ['        .','fn','build','();'],
-          [],
-          ['    api.','fn','post','(','str','"/payments"',', req)'],
-          ['        .','fn','then','()'],
-          ['        .','fn','statusCode','(','num','201',')'],
-          ['        .','fn','body','(','str','"status"',', ','fn','equalTo','(','str','"ACCEPTED"','));'],
-          ['  }'],
-          ['}']
-        ]
-      },
-      'api-env': {
-        name:'env.properties', locked:false,
-        code:[
-          ['com','# API testing environments'],
-          [],
-          ['com','# === Staging ==='],
-          ['fn','staging.base.url','=https://api-staging.example.com'],
-          ['fn','staging.timeout','=','num','30'],
-          [],
-          ['com','# === Auth ==='],
-          ['fn','auth.method','=oauth2'],
-          ['fn','auth.token.endpoint','=/oauth/token'],
-          [],
-          ['com','# === Reporting ==='],
-          ['fn','log.requests','=true'],
-          ['fn','log.responses.on.failure','=true']
+          ["ann", "jobs", ":"],
+          ["  ", "ann", "newman", ":"],
+          ["    ", "ann", "runs-on", ":", " ubuntu-latest"],
+          ["    ", "ann", "timeout-minutes", ":", " 10"],
+          ["    ", "ann", "steps", ":"],
+          ["      - ", "ann", "uses", ":", " actions/checkout@v4"],
+          ["      - ", "ann", "uses", ":", " actions/setup-node@v4"]
         ]
       }
     }
   },
 
   playwright: {
-    project: 'qavant-playwright-demo',
-    stack: 'TypeScript · Playwright · Node 20',
+    project: 'qavant-tests',
+    repo: 'https://github.com/peterolah-qa/qavant-tests',
+    stack: 'TypeScript · Playwright · 5 browsers',
     tree: [
-      {label:'Project', folder:'src/pages', files:[
-        {key:'pw-base', name:'base.page.ts'},
-        {key:'pw-login', name:'login.page.ts'},
+      {label:'qavant-tests', folder:'tests', files:[
+        {key:'pw-smoke', name:'smoke.spec.ts'},
+        {key:'pw-i18n', name:'i18n.spec.ts'},
       ]},
-      {label:null, folder:'tests', files:[
-        {key:'pw-test', name:'login.spec.ts'},
-      ]},
-      {label:null, folder:'src/fixtures', files:[
-        {key:'pw-fixtures', name:'fixtures.ts'},
+      {label:null, folder:'tests/fixtures', files:[
+        {key:'pw-consts', name:'constants.ts'},
       ]},
       {label:null, folder:'.', files:[
         {key:'pw-config', name:'playwright.config.ts'},
       ]},
     ],
+    defaultFile: 'pw-smoke',
     files: {
-      'pw-base': {
-        name:'base.page.ts', locked:false,
+      'pw-smoke': {
+        name:"smoke.spec.ts", locked:false,
         code:[
-          ['com','// base.page.ts — parent class for page objects'],
-          ['com','// Encapsulates page + common helpers'],
+          ["kw", "import", " { test, expect } ", "kw", "from", " ", "str", "'@playwright/test'", ";"],
+          ["kw", "import", " { ", "typ", "SEL", " } ", "kw", "from", " ", "str", "'./fixtures/constants'", ";"],
           [],
-          ['kw','import ','{ ','typ','Page',', ','typ','Locator',' } ','kw','from ','str','\'@playwright/test\'',';'],
+          ["fn", "test", "(", "str", "'ISTQB badge is a verifiable link to the official register'", ", ", "kw", "async", " ({ page }) => {"],
+          ["    ", "kw", "await", " page.", "fn", "goto", "(", "str", "'/'", ");"],
+          ["    ", "kw", "const", " badge = page.", "fn", "locator", "(", "typ", "SEL", ".certBadge);"],
           [],
-          ['kw','export abstract class ','typ','BasePage',' {'],
-          ['  ','kw','constructor','(','kw','protected readonly ','typ','page',': ','typ','Page',') {}'],
+          ["    ", "kw", "await", " ", "fn", "expect", "(badge, ", "str", "'cert badge should be visible in the hero on load'", ").", "fn", "toBeVisible", "();"],
+          ["    ", "kw", "await", " ", "fn", "expect", "(badge).", "fn", "toContainText", "(", "str", "'ISTQB'", ");"],
           [],
-          ['  ','kw','async ','fn','goto','(path: ','typ','string',') {'],
-          ['    ','kw','await ','kw','this','.page.','fn','goto','(path);'],
-          ['    ','kw','await ','kw','this','.','fn','waitForReady','();'],
-          ['  }'],
-          [],
-          ['  ','com','// Each page declares its readiness signal'],
-          ['  ','kw','protected abstract ','fn','waitForReady','(): ','typ','Promise','<','kw','void','>;'],
-          ['}']
+          ["com", "    // We assert the link CONTRACT (where it points and how it opens), not the"],
+          ["com", "    // destination itself — testing a third party's uptime would only make this"],
+          ["com", "    // suite flaky for reasons outside our control."],
+          ["    ", "kw", "await", " ", "fn", "expect", "(badge).", "fn", "toHaveAttribute", "(", "str", "'href'", ", /^https:\\/\\/scr\\.istqb\\.org\\/?$/);"],
+          ["    ", "kw", "await", " ", "fn", "expect", "(badge).", "fn", "toHaveAttribute", "(", "str", "'target'", ", ", "str", "'_blank'", ");"],
+          ["    ", "kw", "await", " ", "fn", "expect", "(badge, ", "str", "'external link must carry rel=noopener'", ").", "fn", "toHaveAttribute", "(", "str", "'rel'", ", /noopener/);"],
+          ["  });"]
         ]
       },
-      'pw-login': {
-        name:'login.page.ts', locked:false,
+      'pw-i18n': {
+        name:"i18n.spec.ts", locked:false,
         code:[
-          ['com','// login.page.ts — example page object'],
-          ['com','// Locators as getters → always fresh, never stale'],
+          ["kw", "import", " { test, expect } ", "kw", "from", " ", "str", "'@playwright/test'", ";"],
+          ["kw", "import", " { ", "typ", "SEL", ", ", "typ", "LANGS", ", ", "typ", "NAV_SERVICES", ", ", "typ", "STORAGE_LANG_KEY", ", ", "kw", "type", " ", "typ", "Lang", " } ", "kw", "from", " ", "str", "'./fixtures/constants'", ";"],
           [],
-          ['kw','import ','{ ','typ','Page',', ','typ','Locator',' } ','kw','from ','str','\'@playwright/test\'',';'],
-          ['kw','import ','{ ','typ','BasePage',' } ','kw','from ','str','\'./base.page\'',';'],
+          ["com", "/**"],
+          ["com", " * The site ships SK / EN / DE from one DOM via data-i18n + a JS dictionary."],
+          ["com", " * That is a real regression surface: a missing key renders blank, and the"],
+          ["com", " * longest translation (usually German) can overflow a fixed hero. These tests"],
+          ["com", " * treat the language layer as a first-class feature, not an afterthought."],
+          ["com", " */"],
+          ["test.", "fn", "describe", "(", "str", "'Internationalization (SK / EN / DE)'", ", () => {"],
+          ["  ", "kw", "async", " ", "kw", "function", " ", "fn", "switchTo", "(page: ", "kw", "import", "(", "str", "'@playwright/test'", ").", "typ", "Page", ", lang: ", "typ", "Lang", ") {"],
+          ["    ", "kw", "await", " page.", "fn", "locator", "(", "typ", "SEL", ".", "fn", "langButton", "(lang)).", "fn", "click", "();"],
+          ["com", "    // active state is the app's own signal that the switch completed"],
+          ["    ", "kw", "await", " ", "fn", "expect", "(page.", "fn", "locator", "(", "typ", "SEL", ".", "fn", "langButton", "(lang))).", "fn", "toHaveClass", "(/active/);"],
+          ["  }"],
           [],
-          ['kw','export class ','typ','LoginPage',' ','kw','extends ','typ','BasePage',' {'],
+          ["  ", "fn", "test", "(", "str", "'marks a valid language active on first visit (matches <html lang>)'", ", ", "kw", "async", " ({ page }) => {"],
+          ["com", "    // First visit has no saved preference, so the app detects the browser"],
+          ["com", "    // language. We assert internal consistency rather than a hard-coded locale:"],
+          ["com", "    // exactly one button is active and it matches the document language."],
+          ["    ", "kw", "await", " page.", "fn", "goto", "(", "str", "'/'", ");"],
+          ["    ", "kw", "const", " active = page.", "fn", "locator", "(", "str", "'.lang-switch button.active'", ");"],
+          ["    ", "kw", "await", " ", "fn", "expect", "(active).", "fn", "toHaveCount", "(", "num", "1", ");"],
+          ["    ", "kw", "const", " activeLang = ", "kw", "await", " active.", "fn", "getAttribute", "(", "str", "'data-lang'", ");"],
+          ["    ", "kw", "const", " htmlLang = ", "kw", "await", " page.", "fn", "evaluate", "(() => document.documentElement.lang);"],
+          ["    ", "fn", "expect", "(activeLang).", "fn", "toBe", "(htmlLang);"],
+          ["    ", "fn", "expect", "(", "typ", "LANGS", ").", "fn", "toContain", "(activeLang as ", "typ", "Lang", ");"],
+          ["  });"],
           [],
-          ['  ','kw','get ','fn','usernameInput','(): ','typ','Locator',' {'],
-          ['    ','kw','return ','kw','this','.page.','fn','getByLabel','(','str','\'Username\'',');'],
-          ['  }'],
-          [],
-          ['  ','kw','get ','fn','submitButton','(): ','typ','Locator',' {'],
-          ['    ','kw','return ','kw','this','.page.','fn','getByRole','(','str','\'button\'',', { name: ','str','/sign in/i',' });'],
-          ['  }'],
-          [],
-          ['  ','kw','async ','fn','loginAs','(user: ','typ','User','): ','typ','Promise','<','typ','DashboardPage','> {'],
-          ['    ','kw','await ','kw','this','.usernameInput.','fn','fill','(user.name);'],
-          ['    ','kw','await ','kw','this','.page.','fn','getByLabel','(','str','\'Password\'',').','fn','fill','(user.pass);'],
-          ['    ','kw','await ','kw','this','.submitButton.','fn','click','();'],
-          ['    ','kw','return new ','typ','DashboardPage','(','kw','this','.page);'],
-          ['  }'],
-          ['}']
+          ["  ", "fn", "test", "(", "str", "'switching language actually changes the copy'", ", ", "kw", "async", " ({ page }) => {"],
+          ["    ", "kw", "await", " page.", "fn", "goto", "(", "str", "'/'", ");"],
+          ["    ", "kw", "for", " (", "kw", "const", " lang ", "kw", "of", " ", "typ", "LANGS", ") {"],
+          ["      ", "kw", "await", " ", "fn", "switchTo", "(page, lang);"],
+          ["      ", "kw", "const", " firstNav = page.", "fn", "locator", "(", "typ", "SEL", ".navLinks).", "fn", "first", "();"],
+          ["      ", "kw", "await", " ", "fn", "expect", "(firstNav).", "fn", "toHaveText", "(", "typ", "NAV_SERVICES", "[lang]);"],
+          ["    }"]
         ]
       },
-      'pw-test': {
-        name:'login.spec.ts', locked:false,
+      'pw-consts': {
+        name:"constants.ts", locked:false,
         code:[
-          ['com','// login.spec.ts — example test'],
-          ['com','// Custom fixtures inject ready-to-use page objects'],
+          ["com", "/**"],
+          ["com", " * Central selectors / constants. One place to update if the markup changes —"],
+          ["com", " * the tests read from here instead of hard-coding strings everywhere."],
+          ["com", " */"],
+          ["kw", "export", " ", "kw", "const", " ", "typ", "LANGS", " = [", "str", "'sk'", ", ", "str", "'en'", ", ", "str", "'de'", "] as ", "kw", "const", ";"],
+          ["kw", "export", " ", "kw", "type", " ", "typ", "Lang", " = (typeof ", "typ", "LANGS", ")[number];"],
           [],
-          ['kw','import ','{ test, expect } ','kw','from ','str','\'../src/fixtures/fixtures\'',';'],
+          ["kw", "export", " ", "kw", "const", " ", "typ", "SECTIONS", " = ["],
+          ["  ", "str", "'services'", ","],
+          ["  ", "str", "'showcase'", ","],
+          ["  ", "str", "'interlude'", ","],
+          ["  ", "str", "'about'", ","],
+          ["  ", "str", "'mission'", ","],
+          ["  ", "str", "'process'", ","],
+          ["  ", "str", "'contact'", ","],
+          ["] as ", "kw", "const", ";"],
           [],
-          ['fn','test','.','fn','describe','(','str','\'Authentication\'',', () => {'],
-          [],
-          ['  ','fn','test','(','str','\'valid user signs in\'',', ','kw','async ','({ loginPage, dashboardPage }) => {'],
-          ['    ','kw','await ','loginPage.','fn','goto','(','str','\'/login\'',');'],
-          ['    ','kw','await ','loginPage.','fn','loginAs','(','fn','users','.','fn','standard','());'],
-          [],
-          ['    ','kw','await ','fn','expect','(dashboardPage.welcomeBanner).','fn','toBeVisible','();'],
-          ['  });'],
-          ['});']
-        ]
-      },
-      'pw-fixtures': {
-        name:'fixtures.ts', locked:true,
-        code:[
-          ['com','// fixtures.ts — extends Playwright test with page objects'],
-          [],
-          ['kw','import ','{ test as base } ','kw','from ','str','\'@playwright/test\'',';'],
-          [],
-          ['kw','type ','typ','Fixtures',' = {'],
-          ['  loginPage: ','typ','LoginPage',';'],
-          ['  dashboardPage: ','typ','DashboardPage',';'],
-          ['};'],
-          [],
-          ['kw','export const ','fn','test',' = base.','fn','extend','<','typ','Fixtures','>({'],
-          ['  loginPage: ','kw','async ','({ page }, use) => {'],
-          ['    ','kw','await ','fn','use','(','kw','new ','typ','LoginPage','(page));'],
-          ['  },'],
-          ['  ','com','// ... auth state reuse, network mocking ...'],
-          ['  ','com','// ... visual regression hooks ...'],
-          ['  ','com','// (full implementation in private repo)'],
-          ['});']
+          ["kw", "export", " ", "kw", "const", " ", "typ", "SEL", " = {"],
+          ["  hero: ", "str", "'#heroTitle'", ","],
+          ["  heroCanvas: ", "str", "'#hero3d'", ","],
+          ["  nav: ", "str", "'nav.nav-links'", ","],
+          ["  navLinks: ", "str", "'nav.nav-links a[href^=\"#\"]'", ","],
+          ["  langSwitch: ", "str", "'.lang-switch'", ","],
+          ["  langButton: (l: ", "typ", "Lang", ") => `.lang-switch button[data-lang=", "str", "\"${l}\"", "]`,"],
+          ["  i18nNodes: ", "str", "'[data-i18n]'", ","],
+          ["  form: ", "str", "'form[name=\"contact\"]'", ","]
         ]
       },
       'pw-config': {
-        name:'playwright.config.ts', locked:false,
+        name:"playwright.config.ts", locked:false,
         code:[
-          ['com','// playwright.config.ts — main config'],
+          ["kw", "import", " { defineConfig, devices } ", "kw", "from", " ", "str", "'@playwright/test'", ";"],
           [],
-          ['kw','import ','{ defineConfig, devices } ','kw','from ','str','\'@playwright/test\'',';'],
+          ["com", "/**"],
+          ["com", " * Tests run against the LIVE production site by default (synthetic monitoring style)."],
+          ["com", " * Override with:  BASE_URL=http://localhost:8000 npm test"],
+          ["com", " */"],
+          ["kw", "const", " ", "typ", "BASE_URL", " = process.env.", "typ", "BASE_URL", " ?? ", "str", "'https://qavant.dev'", ";"],
+          ["kw", "const", " isCI = !!process.env.", "typ", "CI", ";"],
           [],
-          ['kw','export default ','fn','defineConfig','({'],
-          ['  testDir: ','str','\'./tests\'',','],
-          ['  fullyParallel: ','kw','true',','],
-          ['  retries: process.env.CI ? ','num','2',' : ','num','0',','],
-          ['  workers: process.env.CI ? ','num','4',' : ','kw','undefined',','],
-          ['  reporter: [[','str','\'html\'','], [','str','\'allure-playwright\'','] ],'],
-          ['  use: {'],
-          ['    baseURL: process.env.BASE_URL,'],
-          ['    trace: ','str','\'on-first-retry\'',','],
-          ['    screenshot: ','str','\'only-on-failure\'',','],
-          ['  },'],
-          ['});']
+          ["kw", "export", " ", "kw", "default", " ", "fn", "defineConfig", "({"],
+          ["  testDir: ", "str", "'./tests'", ","],
+          ["  timeout: ", "num", "60_000", ",            ", "com", "// axe-core on a live site needs headroom"],
+          ["  expect: { timeout: ", "num", "10_000", " },"],
+          ["  fullyParallel: ", "kw", "true", ","],
+          ["  forbidOnly: isCI,            ", "com", "// a stray test.only fails the CI build"],
+          ["  retries: isCI ? ", "num", "2", " : ", "num", "0", ","],
+          ["  workers: ", "num", "2", ",                 ", "com", "// cap parallelism: 5 heavy browsers on a live site starve each other"],
+          ["  reporter: isCI"],
+          ["    ? [[", "str", "'github'", "], [", "str", "'html'", ", { open: ", "str", "'never'", " }], [", "str", "'json'", ", { outputFile: ", "str", "'results.json'", " }], [", "str", "'list'", "]]"],
+          ["    : [[", "str", "'html'", ", { open: ", "str", "'never'", " }], [", "str", "'json'", ", { outputFile: ", "str", "'results.json'", " }], [", "str", "'list'", "]],"],
+          [],
+          ["  use: {"],
+          ["    baseURL: ", "typ", "BASE_URL", ","],
+          ["    trace: ", "str", "'on-first-retry'", ","],
+          ["    screenshot: ", "str", "'only-on-failure'", ","],
+          ["    video: ", "str", "'retain-on-failure'", ","],
+          ["    actionTimeout: ", "num", "10_000", ","],
+          ["    navigationTimeout: ", "num", "30_000", ","],
+          ["  },"],
+          [],
+          ["  projects: ["],
+          ["    { name: ", "str", "'chromium'", ", use: { ...devices[", "str", "'Desktop Chrome'", "] } },"],
+          ["    { name: ", "str", "'firefox'", ",  use: { ...devices[", "str", "'Desktop Firefox'", "] } },"],
+          ["    { name: ", "str", "'webkit'", ",   use: { ...devices[", "str", "'Desktop Safari'", "] } },"],
+          ["    { name: ", "str", "'mobile-chrome'", ", use: { ...devices[", "str", "'Pixel 5'", "] } },"],
+          ["    { name: ", "str", "'mobile-safari'", ", use: { ...devices[", "str", "'iPhone 13'", "] } },"],
+          ["  ],"],
+          ["});"]
         ]
       }
     }
@@ -4873,7 +4888,7 @@ const frameworks = {
 };
 
 let activeFramework = 'selenium';
-let activeFile = 'sel-login';
+let activeFile = frameworks.selenium.defaultFile;
 
 function renderTree(fwKey){
   const fw = frameworks[fwKey];
@@ -4917,6 +4932,8 @@ function renderCode(fwKey, fileKey){
   const codeEl = document.getElementById('ideCode');
   document.getElementById('activeTabName').textContent = file.name;
   document.getElementById('ideStack').textContent = fw.stack;
+  const repoEl = document.getElementById('ideRepoLink');
+  if(repoEl && fw.repo) repoEl.href = fw.repo;
   document.getElementById('ideProjectName').textContent = fw.project;
 
   let html = '<pre>';
@@ -5035,7 +5052,7 @@ document.querySelectorAll('.fw-tab').forEach(tab=>{
 
 // Initial render
 renderTree('selenium');
-renderCode('selenium', 'sel-login');
+renderCode('selenium', frameworks.selenium.defaultFile);
 
 // ============== SCROLL PROGRESS BAR ==============
 const scrollProgress = document.getElementById('scrollProgress');
