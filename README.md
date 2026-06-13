@@ -1,58 +1,80 @@
-# Qavant.dev — Enterprise Employee Operations & QA Showcase Platform
+# Qavant.dev — QA Automation & Test Engineering Showcase
 
-Welcome to the official repository of **Qavant**, a production-ready B2B Employee Engagement & Operations platform. 
+Official repository of **Qavant** — a production portfolio site, designed, built and continuously tested from scratch as a live showcase of my **QA Automation / Test Engineering** work.
 
-> 🎯 **Project Purpose:** This platform was fully designed, architected, and developed from scratch to serve as a live production showcase of my Full-Stack development and advanced **QA Automation / Test Engineering capabilities**.
+> 🎯 **Project Purpose:** qavant.dev is the *system under test*. The site is intentionally simple; the engineering is in the test infrastructure around it — three independent suites, three technologies, three CI pipelines, with live pass-rate metrics fed back onto the page. No claim without clickable proof.
 
 ---
 
 ## 🚀 Live Demo & Production
-* **Production Link:** [qavant.dev](https://qavant.dev)
-* **Target Audience:** B2B / Internal Communications & HR Tech
+
+* **Production:** [qavant.dev](https://qavant.dev)
+* **Languages:** Slovak / English / German (auto-detected, switchable, persisted)
+* **Audience:** QA / SDET hiring · fintech & DACH
 
 ---
 
 ## 🏗️ Architecture & QA Strategy (Proof of Work)
 
-This repository demonstrates industry-level best practices in Software Quality Assurance. Instead of manual testing, the entire ecosystem is built with **Automation-First** mindset.
+The site itself is a single static `index.html` (inline CSS + vanilla JS, no framework, no backend) on Netlify, auto-deployed from `main`. Everything below tests *that* site, automation-first, from three separate repositories.
+
+[![Playwright](https://github.com/peterolah-qa/qavant-tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/peterolah-qa/qavant-tests/actions/workflows/playwright.yml)
+[![Newman](https://github.com/peterolah-qa/qavant-api-tests/actions/workflows/api-tests.yml/badge.svg)](https://github.com/peterolah-qa/qavant-api-tests/actions/workflows/api-tests.yml)
+[![Selenium](https://github.com/peterolah-qa/qavant-selenium/actions/workflows/selenium.yml/badge.svg)](https://github.com/peterolah-qa/qavant-selenium/actions/workflows/selenium.yml)
 
 ### 1. End-to-End (E2E) Testing
-* **Framework:** Playwright (TypeScript) / *[Prispôsob podľa tvojho stacku, napr. Cypress]*
-* **Design Pattern:** **Page Object Model (POM)** for maximum test maintainability and clean code separation.
-* **Coverage:** Complete automated coverage of critical user journeys (User Registration, Auth flows, Form Submissions, and Dynamic UI elements).
+* **Frameworks:** Playwright (TypeScript) and Selenium 4 (Java / TestNG) — the same site covered by two stacks.
+* **Design Pattern:** Page Object Model (POM); explicit waits only, no `sleep`.
+* **Coverage:** Critical journeys — language switching (SK/EN/DE), contact form, responsive layout, accessibility (axe-core / WCAG 2 AA), live-metrics widget, ISTQB badge link contract. 145 Playwright tests across 5 browsers + 11 Selenium tests.
 
 ### 2. API & Integration Testing
-* **Framework:** Playwright API / Supertest / *[Doplň svoj nástroj]*
-* **Coverage:** Automated validation of REST/GraphQL endpoints, HTTP status codes, JSON payload schemas, and RBAC (Role-Based Access Control) security boundaries.
+* **Framework:** Postman / Newman.
+* **Coverage:** REST CRUD, authentication, JSON schema and negative tests, plus an HTTP contract check on qavant.dev. 27 assertions.
 
-### 3. CI/CD & DevOps Pipeline
-* **Tool:** GitHub Actions
-* **Workflow:** Every Pull Request or Merge to `main` automatically triggers a headless test runner executing the E2E suite across multiple browsers (Chromium, Firefox, WebKit). Deployment to production is blocked if a single test fails.
+### 3. CI/CD Pipeline
+* **Tool:** GitHub Actions.
+* **Workflow:** Each suite runs on every push to `main` and daily on a schedule, headless across Chromium, Firefox and WebKit. After each run it publishes a `status.json` (read by the site for live metrics) and an HTML / Allure report to GitHub Pages — including failed runs.
+
+| Repository | Stack | Tests |
+|---|---|---|
+| [qavant-tests](https://github.com/peterolah-qa/qavant-tests) | Playwright / TypeScript | 145 (×5 browsers) |
+| [qavant-api-tests](https://github.com/peterolah-qa/qavant-api-tests) | Postman / Newman | 27 assertions |
+| [qavant-selenium](https://github.com/peterolah-qa/qavant-selenium) | Java 17 / Selenium 4 / TestNG / Maven | 11 |
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React / Next.js / TypeScript *[Uprav podľa reality]*
-* **Backend:** Node.js / Express / Python *[Uprav podľa reality]*
-* **Testing:** Playwright, Axe-core (Accessibility), k6 (Performance)
-* **CI/CD:** GitHub Actions / Docker
+* **Site:** HTML5, CSS3, vanilla JavaScript (single file, no bundler), trilingual i18n, JSON-LD, Netlify Forms.
+* **Testing:** Playwright, Selenium, Postman/Newman, axe-core (accessibility).
+* **CI/CD:** GitHub Actions, Allure & HTML reporting on GitHub Pages.
+* **Hosting:** Netlify (auto-deploy from `main`).
 
 ---
 
-## ⚙️ How to Run the Automated Tests Locally
+## ⚙️ Run Locally
 
-To clone the project and execute the automated test suite, run the following commands:
+The site is static — no dependencies, no build:
 
 ```bash
-# Clone the repository
-git clone [https://github.com/YOUR_GITHUB_USERNAME/qavant.git](https://github.com/YOUR_GITHUB_USERNAME/qavant.git)
+git clone https://github.com/peterolah-qa/qavant.git
+cd qavant
+npx serve .
+```
 
-# Install dependencies
+The automated suites live in their own repos. Example for the Playwright suite:
+
+```bash
+git clone https://github.com/peterolah-qa/qavant-tests.git
+cd qavant-tests
 npm install
-
-# Run all automated E2E tests (Headless mode)
 npx playwright test
-
-# Open interactive test report
 npx playwright show-report
+```
+
+---
+
+## 📬 Contact
+
+**Peter Oláh** — QA Automation Engineer · ISTQB® Certified Tester (CTFL v4)
+[peterolah@qavant.dev](mailto:peterolah@qavant.dev) · [qavant.dev](https://qavant.dev) · [LinkedIn](https://www.linkedin.com/in/peter-olah-8ab858137/)
