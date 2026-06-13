@@ -5,58 +5,103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Impressum — Qavant</title>
 <meta name="robots" content="noindex" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23D4AF37'/%3E%3Cstop offset='1' stop-color='%237A0E0E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='20' fill='%230F0E0C'%3Eq%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%231D4ED8'/%3E%3Cg%20stroke='%23FFFFFF'%20stroke-width='1.8'%20fill='none'%3E%3Cpath%20d='M3%208%20V3%20H8'/%3E%3Cpath%20d='M24%203%20H29%20V8'/%3E%3Cpath%20d='M29%2024%20V29%20H24'/%3E%3Cpath%20d='M8%2029%20H3%20V24'/%3E%3C/g%3E%3Ctext%20x='16'%20y='16'%20dy='.35em'%20text-anchor='middle'%20font-family='ui-monospace%2CMenlo%2CConsolas%2Cmonospace'%20font-weight='700'%20font-size='12.5'%20fill='%23FFFFFF'%3EQA%3C/text%3E%3C/svg%3E" />
 <style>
-  @font-face{font-family:'Fraunces';font-weight:400;font-display:swap;src:url('/fonts/fraunces-v33-latin-ext_latin-regular.woff2') format('woff2');}
-  @font-face{font-family:'Fraunces';font-weight:600;font-display:swap;src:url('/fonts/fraunces-v33-latin-ext_latin-600.woff2') format('woff2');}
-  @font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('/fonts/inter-v19-latin-ext_latin-regular.woff2') format('woff2');}
-  @font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url('/fonts/inter-v19-latin-ext_latin-600.woff2') format('woff2');}
-  :root{--bg:#0F0E0C;--ink:#F4EBD9;--ink-2:#C8BFA8;--ink-dim:#7A6F5C;--accent:#D4AF37;--line:rgba(244,235,217,0.10);}
+  @font-face{
+    font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;
+    src:url('/fonts/jetbrains-mono-v25-latin-ext_latin-regular.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;
+    src:url('/fonts/jetbrains-mono-v25-latin-ext_latin-500.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;
+    src:url('/fonts/jetbrains-mono-v25-latin-ext_latin-700.woff2') format('woff2');
+  }
+  @font-face{
+    font-family:'JetBrains Mono';font-style:normal;font-weight:800;font-display:swap;
+    src:url('/fonts/jetbrains-mono-v25-latin-ext_latin-800.woff2') format('woff2');
+  }
+  :root{
+    --bg:#0B0F1A; --panel:#0A2540; --ink:#F4F8FD; --ink-2:#C8D6E5; --ink-dim:#7E97B3;
+    --accent:#3B82F6; --accent-2:#7DB3FF; --line:rgba(125,179,255,0.16);
+  }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--ink-2);font-family:'Inter',system-ui,sans-serif;line-height:1.7;padding:0 20px;}
-  .wrap{max-width:760px;margin:0 auto;padding:80px 0 120px;}
-  a{color:var(--accent);text-decoration:none;}a:hover{text-decoration:underline;}
-  .back{font-size:14px;color:var(--ink-dim);display:inline-block;margin-bottom:48px;}
-  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(32px,5vw,48px);color:var(--ink);letter-spacing:-.02em;margin-bottom:8px;}
-  h2{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--ink);margin:40px 0 12px;}
-  p{margin-bottom:14px;font-size:16px;}
-  .note{border:1px solid var(--accent);border-radius:12px;padding:16px 20px;margin:32px 0;font-size:14px;color:var(--ink-2);background:rgba(212,175,55,0.06);}
-  .ph{color:var(--accent);font-weight:600;}
+  body{
+    background:var(--bg); color:var(--ink-2);
+    font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    line-height:1.75; padding:0 20px;
+    background-image:radial-gradient(1200px 500px at 80% -10%, rgba(37,99,235,0.10), transparent 60%);
+  }
+  .wrap{max-width:780px;margin:0 auto;padding:64px 0 110px;}
+  a{color:var(--accent-2);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .back{
+    font-size:13px;color:var(--ink-dim);display:inline-flex;align-items:center;gap:7px;
+    margin-bottom:40px;border:1px solid var(--line);border-radius:8px;padding:6px 12px;
+    transition:border-color .2s,color .2s;
+  }
+  .back:hover{color:var(--ink);border-color:var(--accent);text-decoration:none;}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:30px;}
+  .brand .seal{
+    width:34px;height:34px;border-radius:9px;flex:none;
+    background:linear-gradient(135deg,#3B82F6,#1D4ED8);
+    box-shadow:0 4px 14px rgba(37,99,235,.35);position:relative;
+  }
+  .brand .seal::before,.brand .seal::after{content:"";position:absolute;width:8px;height:8px;border:1.6px solid #fff;opacity:.95;}
+  .brand .seal::before{top:6px;left:6px;border-right:none;border-bottom:none;border-radius:2px 0 0 0;}
+  .brand .seal::after{bottom:6px;right:6px;border-left:none;border-top:none;border-radius:0 0 2px 0;}
+  .brand b{font-size:15px;color:var(--ink);letter-spacing:.5px;font-weight:700;}
+  h1{
+    font-family:'JetBrains Mono',monospace;font-weight:800;
+    font-size:clamp(28px,4.6vw,42px);color:var(--ink);letter-spacing:-.01em;margin-bottom:6px;
+  }
+  .sub{color:var(--ink-dim);font-size:13px;margin-bottom:8px;}
+  h2{
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--accent-2);
+    margin:36px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line);letter-spacing:.3px;
+  }
+  p{margin-bottom:13px;font-size:14.5px;}
+  ul{margin:0 0 14px 20px;}
+  li{font-size:14.5px;margin-bottom:5px;}
+  strong{color:var(--ink);}
+  .ph{color:var(--ink);font-weight:700;}
+  .card{
+    background:rgba(10,37,64,0.45);border:1px solid var(--line);border-radius:12px;
+    padding:18px 22px;margin:18px 0;
+  }
+  .foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-dim);}
+  .foot a{color:var(--ink-dim);}
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="/">← Zurück zu Qavant</a>
+  <div class="brand"><span class="seal"></span><b>Qavant</b></div>
   <h1>Impressum</h1>
-
-  <div class="note">⚠️ Entwurf. Trage deine echten Daten in den Feldern <span class="ph">[…]</span> ein. Für DACH-Kunden ist ein korrektes Impressum rechtlich relevant — vor Veröffentlichung prüfen.</div>
 
   <h2>Angaben gemäß § 5 DDG</h2>
   <p>
-    <span class="ph">[VOLLER NAME / FIRMENNAME]</span><br/>
-    <span class="ph">[STRASSE UND HAUSNUMMER]</span><br/>
-    <span class="ph">[PLZ, ORT]</span><br/>
+    <span class="ph">Peter Oláh</span><br/>
+    Vansovej 753/8<br/>
+    981 01 Hnúšťa<br/>
     Slowakei
   </p>
 
   <h2>Kontakt</h2>
   <p>
-    E-Mail: <a href="mailto:hello@qavant.dev">hello@qavant.dev</a><br/>
-    Telefon: <span class="ph">[OPTIONAL]</span>
+    E-Mail: <a href="mailto:peterolah@qavant.dev">peterolah@qavant.dev</a><br/>
   </p>
 
   <h2>Unternehmensangaben</h2>
   <p>
-    IČO (Identifikationsnummer): <span class="ph">[IČO]</span><br/>
-    DIČ (Steuernummer): <span class="ph">[DIČ]</span><br/>
+    IČO (Identifikationsnummer): 54933901<br/>
     Eingetragen im slowakischen Gewerberegister (Živnostenský register).
   </p>
 
-  <h2>Umsatzsteuer</h2>
-  <p>USt-IdNr. / IČ DPH: <span class="ph">[FALLS VORHANDEN — sonst diesen Abschnitt entfernen]</span></p>
-
   <h2>Verantwortlich für den Inhalt</h2>
-  <p><span class="ph">[VOLLER NAME]</span>, Anschrift wie oben.</p>
+  <p><span class="ph">Peter Oláh</span>, Anschrift wie oben.</p>
 </div>
 </body>
 </html>
